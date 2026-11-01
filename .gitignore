@@ -2,3 +2,5 @@
 .ipynb_checkpoints/
 .DS_Store
 __pycache__/
+
+/Homework 2/amazon_reviews_us_Musical_Instruments_v1_00.tsv.gz
