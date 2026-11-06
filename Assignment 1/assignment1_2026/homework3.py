@@ -12,33 +12,37 @@ from surprise import SVD, Reader, Dataset
 from surprise.model_selection import train_test_split
 from tqdm import tqdm as tqdm
 
-dataDir = "./"
+dataDir = "/Users/hrithik/Desktop/UC San Diego/Courses/UCSD CSE 258/Assignment 1/assignment1_2026"
 
 def latentFactorModel(trainFile):
-    a = open(trainFile, 'r')
-    b = open("temp.csv", 'w')
-    a.readline()
-    for l in a.readlines():
-        b.write(l)
-    a.close()
-    b.close() # Need to delete the header
-    
+    with open(trainFile, 'r') as a, open("temp.csv", 'w') as b:
+        a.readline()  
+        for line in a:
+            b.write(line)
+
     reader = Reader(line_format='user item timestamp rating', sep=',')
     data = Dataset.load_from_file("temp.csv", reader=reader)
-    
-    model = SVD(n_factors=32, n_epochs=50)
-    trainset, testset = train_test_split(data, test_size=.25)
+
+    model = SVD(
+        n_factors=16,
+        n_epochs=50,
+        reg_all=0.1,
+        random_state=42
+    )
+
+    trainset, testset = train_test_split(
+        data, test_size=.25, random_state=42
+    )
     model.fit(trainset)
-    
+
     predictions = model.test(testset)
-    
-    sse = 0
-    for p in predictions:
-        sse += (p.r_ui - p.est)**2
-    
-    print("Error on own test set = ", str(sse / len(predictions)))
-    
-    return trainset, model
+    mse = sum((p.r_ui - p.est) ** 2 for p in predictions) / len(predictions)
+    print("Validation MSE =", mse)
+
+    full_trainset = data.build_full_trainset()
+    model.fit(full_trainset)
+
+    return full_trainset, model
 
 def testPredictionsLFM(trainset, model, testIn, testOut):
     a = open(testIn, 'r')
@@ -162,7 +166,7 @@ a.close()
 
 medians = {}
 for u in userDeltas:
-    medians[u] = numpy.median(userDeltas[u])
+    medians[u] = numpy.mean(userDeltas[u])
 
 a = open("task_6_test.csv", 'r')
 b = open("task_6_predictions.csv", 'w')
