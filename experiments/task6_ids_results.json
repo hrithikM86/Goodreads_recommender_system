@@ -1,0 +1,12 @@
+{
+  "ids_mae": {
+    "selection_MAE": 9167769.43468982,
+    "evaluation_MAE": 9526362.755650759,
+    "iterations": 669
+  },
+  "ids_log": {
+    "selection_MAE": 9131775.742288563,
+    "evaluation_MAE": 9456054.928427247,
+    "iterations": 911
+  }
+}
