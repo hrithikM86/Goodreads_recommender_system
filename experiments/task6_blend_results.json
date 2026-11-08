@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "original_seed_average": 5.034709387055727e-18,
+    "original_log_mae": 5.8568656585168995e-18,
+    "original_rmse": 0.04957969406091298,
+    "rich_mae6": 0.025720589530609267,
+    "rich_mae8": 4.277926111270475e-17,
+    "rich_log6": 5.2743245023999746e-18,
+    "ids_mae": 0.22076233536241807,
+    "ids_log": 0.7039373810460597
+  },
+  "optimizer_success": true,
+  "selection_MAE": 9116208.629310338,
+  "evaluation_MAE": 9433913.0168713,
+  "target_MAE": 8457851
+}
