@@ -1,0 +1,17 @@
+{
+  "rich_mae6": {
+    "selection_MAE": 9387673.461819813,
+    "evaluation_MAE": 9809864.103354847,
+    "iterations": 1276
+  },
+  "rich_mae8": {
+    "selection_MAE": 9390709.529495563,
+    "evaluation_MAE": 9804008.43752405,
+    "iterations": 783
+  },
+  "rich_log6": {
+    "selection_MAE": 9398715.260504756,
+    "evaluation_MAE": 9817583.736667054,
+    "iterations": 645
+  }
+}
