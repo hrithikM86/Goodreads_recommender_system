@@ -1,0 +1,210 @@
+{
+  "main": {
+    "users": 86786,
+    "items": 232427,
+    "training_interactions": 2380475,
+    "selection_pairs": 86786,
+    "evaluation_pairs": 86786,
+    "negative_sampling": "training-interaction popularity weighted; previously seen candidates allowed",
+    "feature_names": [
+      "popularity",
+      "already_seen",
+      "cold_item",
+      "history_count",
+      "bpr32",
+      "bpr64",
+      "als_history",
+      "als_recent5",
+      "factorized_markov_last",
+      "factorized_markov_recent3",
+      "markov_count",
+      "markov_reverse",
+      "markov_lift",
+      "tail_pop1",
+      "tail_fraction1",
+      "tail_pop5",
+      "tail_fraction5",
+      "cosine_max",
+      "cosine_top10",
+      "cosine_last",
+      "cosine_recent3",
+      "cosine_recent5"
+    ],
+    "weights": [
+      -0.5527367403018006,
+      -12.961971484358374,
+      10.5994826842554,
+      0.0,
+      0.22887878448316462,
+      1.0196629494937497,
+      -1.842438497027437,
+      2.147569163538013,
+      -0.04706754044448151,
+      0.9114427041246832,
+      -0.06220967294448072,
+      -0.24376944548028007,
+      0.058794670557476496,
+      -0.11094889948924143,
+      0.5538617644100009,
+      0.5434051868444528,
+      0.46924457647229334,
+      6.024521841938591,
+      -0.6199526341397069,
+      3.5376336319874904,
+      4.209546136200533,
+      -2.3838585334783717
+    ],
+    "results": {
+      "popularity": {
+        "selection_accuracy": 0.5308114211969672,
+        "evaluation_accuracy": 0.5207406724586915
+      },
+      "already_seen": {
+        "selection_accuracy": 0.4970732606641624,
+        "evaluation_accuracy": 0.496940750812343
+      },
+      "cold_item": {
+        "selection_accuracy": 0.5190987025557118,
+        "evaluation_accuracy": 0.5203028138178969
+      },
+      "history_count": {
+        "selection_accuracy": 0.5,
+        "evaluation_accuracy": 0.5
+      },
+      "bpr32": {
+        "selection_accuracy": 0.8543889567441754,
+        "evaluation_accuracy": 0.8378425091604637
+      },
+      "bpr64": {
+        "selection_accuracy": 0.8727098840826861,
+        "evaluation_accuracy": 0.8557947134330421
+      },
+      "als_history": {
+        "selection_accuracy": 0.7756320143801996,
+        "evaluation_accuracy": 0.7734772889636577
+      },
+      "als_recent5": {
+        "selection_accuracy": 0.7745719355656442,
+        "evaluation_accuracy": 0.7720830548706012
+      },
+      "factorized_markov_last": {
+        "selection_accuracy": 0.6943631461295601,
+        "evaluation_accuracy": 0.6872594658124582
+      },
+      "factorized_markov_recent3": {
+        "selection_accuracy": 0.6967828912497407,
+        "evaluation_accuracy": 0.6875590533035282
+      },
+      "markov_count": {
+        "selection_accuracy": 0.6152950936787039,
+        "evaluation_accuracy": 0.6106514875671191
+      },
+      "markov_reverse": {
+        "selection_accuracy": 0.5953782868204549,
+        "evaluation_accuracy": 0.591812043417141
+      },
+      "markov_lift": {
+        "selection_accuracy": 0.6149321319106769,
+        "evaluation_accuracy": 0.6110490171225774
+      },
+      "tail_pop1": {
+        "selection_accuracy": 0.5642845620261332,
+        "evaluation_accuracy": 0.5612829258175281
+      },
+      "tail_fraction1": {
+        "selection_accuracy": 0.5853651510612311,
+        "evaluation_accuracy": 0.5942202659415113
+      },
+      "tail_pop5": {
+        "selection_accuracy": 0.5621010301200654,
+        "evaluation_accuracy": 0.5566738874933745
+      },
+      "tail_fraction5": {
+        "selection_accuracy": 0.6099486092226857,
+        "evaluation_accuracy": 0.6220012444403475
+      },
+      "cosine_max": {
+        "selection_accuracy": 0.764368676975549,
+        "evaluation_accuracy": 0.7595522319268084
+      },
+      "cosine_top10": {
+        "selection_accuracy": 0.756717673357454,
+        "evaluation_accuracy": 0.7493835411241444
+      },
+      "cosine_last": {
+        "selection_accuracy": 0.7026248473256055,
+        "evaluation_accuracy": 0.6981656027469868
+      },
+      "cosine_recent3": {
+        "selection_accuracy": 0.7464971308736432,
+        "evaluation_accuracy": 0.7404880971585279
+      },
+      "cosine_recent5": {
+        "selection_accuracy": 0.7555481298826999,
+        "evaluation_accuracy": 0.7497349802963612
+      },
+      "ensemble": {
+        "selection_accuracy": 0.9069435162353375,
+        "evaluation_accuracy": 0.902576452423202,
+        "internal_selection_accuracy": 0.9077658716441986,
+        "C": 1.0
+      }
+    },
+    "ordering_only": true,
+    "stacking": {
+      "candidates": {
+        "3": {
+          "internal_selection_accuracy": 0.9112224910703998,
+          "iterations": 440
+        },
+        "5": {
+          "internal_selection_accuracy": 0.91168337366056,
+          "iterations": 364
+        }
+      },
+      "internal_selection_accuracy": 0.91168337366056,
+      "depth": 5,
+      "iterations": 364,
+      "evaluation_accuracy": 0.9085105892655497,
+      "linear_internal_selection_accuracy": 0.9077658716441986,
+      "linear_evaluation_accuracy": 0.902576452423202,
+      "selected": "stacker"
+    },
+    "selected_model": "stacker",
+    "selected_evaluation_accuracy": 0.9085105892655497
+  },
+  "ablation": {
+    "static": {
+      "evaluation_accuracy": 0.8790012213951559,
+      "internal_selection_accuracy": 0.8953796520336444,
+      "C": 1.0
+    },
+    "without_markov": {
+      "evaluation_accuracy": 0.9009517664139377,
+      "internal_selection_accuracy": 0.905979951607328,
+      "C": 0.01
+    },
+    "without_recency": {
+      "evaluation_accuracy": 0.8969073352844928,
+      "internal_selection_accuracy": 0.9049429657794676,
+      "C": 0.1
+    }
+  },
+  "cohort_checks": {
+    "test_rows": 86786,
+    "test_unseen_item1": 1712,
+    "test_unseen_item2": 1729,
+    "both_unseen": 0,
+    "already_seen_pair_rows": 598,
+    "unique_training_user_item": true,
+    "ordered_user_blocks": true,
+    "model_uses_timestamps": false
+  },
+  "checks": {
+    "row_count": 86786,
+    "header_and_inputs_match": true,
+    "every_output_is_candidate": true,
+    "pair_swap_antisymmetry": true
+  },
+  "accepted_task4_gradescope_accuracy": 0.9403
+}
