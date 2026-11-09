@@ -1,81 +1,157 @@
 {
-  "mae_seed42": {
-    "selection": {
-      "MAE": 9398163.32586637,
-      "MSE": 5806494227030066.0
+  "final_ensemble": {
+    "selection_MAE": 7231698.224984346,
+    "evaluation_MAE": 7457904.6219744105,
+    "weights": {
+      "book_mae": 0.8854989833070736,
+      "book_log": 0.0958632591333806,
+      "ridge": 0.018637757559545862
     },
-    "evaluation": {
-      "MAE": 9813904.310173241,
-      "MSE": 498919069274752.7
-    },
-    "iterations": 1000
-  },
-  "mae_seed17": {
-    "selection": {
-      "MAE": 9400451.491100283,
-      "MSE": 5807017652411641.0
-    },
-    "evaluation": {
-      "MAE": 9817588.27527786,
-      "MSE": 499806721094998.44
-    },
-    "iterations": 920
-  },
-  "log_mae": {
-    "selection": {
-      "MAE": 9399782.910946753,
-      "MSE": 5809108948141377.0
-    },
-    "evaluation": {
-      "MAE": 9820653.47028833,
-      "MSE": 499852260959502.25
-    },
-    "iterations": 773
-  },
-  "rmse": {
-    "selection": {
-      "MAE": 9948883.46763898,
-      "MSE": 5744413785969915.0
-    },
-    "evaluation": {
-      "MAE": 10129016.442626074,
-      "MSE": 469116255408116.94
-    },
-    "iterations": 31
-  },
-  "selected_ensemble": {
-    "weights_seed_average_log_mae_rmse": [
-      0.2,
-      0.6000000000000001,
-      0.19999999999999996
-    ],
-    "selection": {
-      "MAE": 9297463.602878941,
-      "MSE": 5789630964837125.0
-    },
-    "evaluation": {
-      "MAE": 9664091.038643183,
-      "MSE": 484868372428065.8
+    "success": true,
+    "components": {
+      "original_seed_average": {
+        "selection_MAE": 9397836.294991495,
+        "evaluation_MAE": 9814347.772679605
+      },
+      "original_log_mae": {
+        "selection_MAE": 9399782.910946755,
+        "evaluation_MAE": 9820653.47028833
+      },
+      "original_rmse": {
+        "selection_MAE": 9948883.46763898,
+        "evaluation_MAE": 10129016.442626072
+      },
+      "rich_mae6": {
+        "selection_MAE": 9387673.461819813,
+        "evaluation_MAE": 9809864.103354847
+      },
+      "rich_mae8": {
+        "selection_MAE": 9390709.529495563,
+        "evaluation_MAE": 9804008.43752405
+      },
+      "rich_log6": {
+        "selection_MAE": 9398715.260504756,
+        "evaluation_MAE": 9817583.736667054
+      },
+      "history_mae": {
+        "selection_MAE": 9107018.626033803,
+        "evaluation_MAE": 9538997.980177455
+      },
+      "history_log": {
+        "selection_MAE": 9129340.307540204,
+        "evaluation_MAE": 9538405.395199675
+      },
+      "book_mae": {
+        "selection_MAE": 7237897.249569558,
+        "evaluation_MAE": 7468394.8475091215
+      },
+      "book_log": {
+        "selection_MAE": 7321657.4483505655,
+        "evaluation_MAE": 7566358.6076070145
+      },
+      "median": {
+        "selection_MAE": 13381979.502456421,
+        "evaluation_MAE": 12052135.80528717
+      },
+      "scaled_median_0.4": {
+        "selection_MAE": 10697488.352128569,
+        "evaluation_MAE": 10719231.912418343
+      },
+      "ridge": {
+        "selection_MAE": 11390206.039607333,
+        "evaluation_MAE": 11436785.881660653
+      }
     }
   },
-  "median": {
-    "selection": {
-      "MAE": 13381979.54234117,
-      "MSE": 6843971381833005.0
+  "controlled_models": {
+    "history_mae": {
+      "selection_MAE": 9107018.626033803,
+      "evaluation_MAE": 9538997.980177455,
+      "iterations": 1000,
+      "log_target": false
     },
-    "evaluation": {
-      "MAE": 12052135.779738711,
-      "MSE": 797627094611268.4
+    "history_log": {
+      "selection_MAE": 9129340.307540204,
+      "evaluation_MAE": 9538405.395199675,
+      "iterations": 980,
+      "log_target": true
+    },
+    "book_mae": {
+      "selection_MAE": 7237897.249569558,
+      "evaluation_MAE": 7468394.8475091215,
+      "iterations": 1196,
+      "log_target": false
+    },
+    "book_log": {
+      "selection_MAE": 7321657.4483505655,
+      "evaluation_MAE": 7566358.6076070145,
+      "iterations": 1171,
+      "log_target": true
     }
   },
-  "seed_average": {
-    "selection": {
-      "MAE": 9397836.294991493,
-      "MSE": 5806674941573555.0
+  "configuration": {
+    "version": "task6-date-aware-v1",
+    "models": {
+      "book_mae": {
+        "mode": "book",
+        "iterations": 1196,
+        "loss": "MAE",
+        "log": false,
+        "depth": 6,
+        "seed": 42,
+        "categories": true
+      },
+      "book_log": {
+        "mode": "book",
+        "iterations": 1171,
+        "loss": "MAE",
+        "log": true,
+        "depth": 6,
+        "seed": 42,
+        "categories": true
+      }
     },
-    "evaluation": {
-      "MAE": 9814347.772679606,
-      "MSE": 499294312370445.06
-    }
+    "weights": {
+      "book_mae": 0.8854989833070736,
+      "book_log": 0.0958632591333806,
+      "ridge": 0.018637757559545862
+    },
+    "history_feature_count": 64,
+    "item_feature_count": 16,
+    "training_sampling": "up to five earlier targets per user plus final two observed targets",
+    "selection_MAE": 7231698.224984346,
+    "evaluation_MAE": 7457904.6219744105
+  },
+  "earlier_history_ensemble": {
+    "weights": {
+      "original_seed_average": 5.034709387055727e-18,
+      "original_log_mae": 5.8568656585168995e-18,
+      "original_rmse": 0.04957969406091298,
+      "rich_mae6": 0.025720589530609267,
+      "rich_mae8": 4.277926111270475e-17,
+      "rich_log6": 5.2743245023999746e-18,
+      "ids_mae": 0.22076233536241807,
+      "ids_log": 0.7039373810460597
+    },
+    "optimizer_success": true,
+    "selection_MAE": 9116208.629310338,
+    "evaluation_MAE": 9433913.0168713,
+    "target_MAE": 8457851
+  },
+  "checks": {
+    "prediction_rows": 55403,
+    "input_header_and_order_match": true,
+    "nonnegative_finite_seconds": true,
+    "production_replay_max_absolute_difference": 0.0,
+    "sampled_history_feature_replay_exact": true,
+    "item_time_leave_one_out_tests": true
+  },
+  "reported_gradescope_scores_before_task6_update": {
+    "task1": 0.5538262939223092,
+    "task2": 0.9461,
+    "task3": 0.704589533460822,
+    "task4": 0.9403,
+    "task5": 0.9093402161638974,
+    "task6": 13130029.77082897
   }
 }

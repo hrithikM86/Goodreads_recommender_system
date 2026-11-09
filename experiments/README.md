@@ -1,3 +1,5 @@
+> Latest Task 6 baseline: see [TASK6.md](TASK6.md) and run `task6_pipeline.py --predict`. The material below describes earlier history-only experiments; their recorded results are retained in `task6_previous_experiment_results.json`.
+
 # Task 6 experiments
 
 Run from the repository root (Python 3.11+):

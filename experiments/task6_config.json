@@ -1,0 +1,33 @@
+{
+  "version": "task6-date-aware-v1",
+  "models": {
+    "book_mae": {
+      "mode": "book",
+      "iterations": 1196,
+      "loss": "MAE",
+      "log": false,
+      "depth": 6,
+      "seed": 42,
+      "categories": true
+    },
+    "book_log": {
+      "mode": "book",
+      "iterations": 1171,
+      "loss": "MAE",
+      "log": true,
+      "depth": 6,
+      "seed": 42,
+      "categories": true
+    }
+  },
+  "weights": {
+    "book_mae": 0.8854989833070736,
+    "book_log": 0.0958632591333806,
+    "ridge": 0.018637757559545862
+  },
+  "history_feature_count": 64,
+  "item_feature_count": 16,
+  "training_sampling": "up to five earlier targets per user plus final two observed targets",
+  "selection_MAE": 7231698.224984346,
+  "evaluation_MAE": 7457904.6219744105
+}
