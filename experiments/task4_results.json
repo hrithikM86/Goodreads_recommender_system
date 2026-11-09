@@ -1,0 +1,210 @@
+{
+  "main": {
+    "split_sizes": [
+      1286317,
+      71462,
+      71463
+    ],
+    "negative_sampling": "popularity weighted using training-partition interactions; previously seen negatives allowed",
+    "feature_names": [
+      "popularity",
+      "already_seen",
+      "bpr32",
+      "bpr64",
+      "als64",
+      "als128",
+      "als_user180",
+      "als_user365",
+      "cosine_max",
+      "cosine_top10",
+      "jaccard_max",
+      "cosine_time30",
+      "cosine_time180",
+      "cosine_time365",
+      "cosine_top10_time180",
+      "item_nearest_time",
+      "item_age",
+      "item_count30",
+      "item_fraction30",
+      "item_count90",
+      "item_fraction90",
+      "item_count365",
+      "item_fraction365"
+    ],
+    "weights": [
+      -0.9670443806161839,
+      -13.469441132894664,
+      0.5240290126432384,
+      0.3798639378828136,
+      -0.06616895566763917,
+      0.363926926007379,
+      0.8046823056896056,
+      0.5745425794904236,
+      11.884501677919122,
+      -0.8192980020696409,
+      -15.532177718104224,
+      7.255392633152299,
+      -1.7479991141266003,
+      7.447581950313919,
+      -0.04846742855028229,
+      0.09682708724090146,
+      0.1658104746885742,
+      0.23649619515091055,
+      2.6313568169470454,
+      0.22772544480228185,
+      0.7906351054993642,
+      0.31666581898215557,
+      -0.36996922751191463
+    ],
+    "results": {
+      "popularity": {
+        "selection_accuracy": 0.49862864179563965,
+        "evaluation_accuracy": 0.49736227138519234
+      },
+      "already_seen": {
+        "selection_accuracy": 0.4769667795471719,
+        "evaluation_accuracy": 0.4773659096315576
+      },
+      "bpr32": {
+        "selection_accuracy": 0.8375360331364922,
+        "evaluation_accuracy": 0.8369226033052068
+      },
+      "bpr64": {
+        "selection_accuracy": 0.833715820995774,
+        "evaluation_accuracy": 0.833228383918951
+      },
+      "als64": {
+        "selection_accuracy": 0.7727883350591923,
+        "evaluation_accuracy": 0.7716300743041854
+      },
+      "als128": {
+        "selection_accuracy": 0.7725504463910889,
+        "evaluation_accuracy": 0.771797993367197
+      },
+      "als_user180": {
+        "selection_accuracy": 0.7756429990764322,
+        "evaluation_accuracy": 0.7801239802415236
+      },
+      "als_user365": {
+        "selection_accuracy": 0.7956676275503065,
+        "evaluation_accuracy": 0.7945230398947707
+      },
+      "cosine_max": {
+        "selection_accuracy": 0.719844112955137,
+        "evaluation_accuracy": 0.7190364244434183
+      },
+      "cosine_top10": {
+        "selection_accuracy": 0.6907237412890768,
+        "evaluation_accuracy": 0.6912038397492408
+      },
+      "jaccard_max": {
+        "selection_accuracy": 0.7211105202765106,
+        "evaluation_accuracy": 0.71942123896282
+      },
+      "cosine_time30": {
+        "selection_accuracy": 0.7441577341804035,
+        "evaluation_accuracy": 0.7441962973846606
+      },
+      "cosine_time180": {
+        "selection_accuracy": 0.7558912428983235,
+        "evaluation_accuracy": 0.7540755355918447
+      },
+      "cosine_time365": {
+        "selection_accuracy": 0.7564999580196468,
+        "evaluation_accuracy": 0.7560066048164784
+      },
+      "cosine_top10_time180": {
+        "selection_accuracy": 0.746242758389074,
+        "evaluation_accuracy": 0.7464632047353176
+      },
+      "item_nearest_time": {
+        "selection_accuracy": 0.7268478352131202,
+        "evaluation_accuracy": 0.7256482375495011
+      },
+      "item_age": {
+        "selection_accuracy": 0.5028826509193698,
+        "evaluation_accuracy": 0.4991813945678183
+      },
+      "item_count30": {
+        "selection_accuracy": 0.7205857658615767,
+        "evaluation_accuracy": 0.7206596420525306
+      },
+      "item_fraction30": {
+        "selection_accuracy": 0.7901961881839299,
+        "evaluation_accuracy": 0.7918853112799631
+      },
+      "item_count90": {
+        "selection_accuracy": 0.7187456270465422,
+        "evaluation_accuracy": 0.7181268628521053
+      },
+      "item_fraction90": {
+        "selection_accuracy": 0.8033010551062103,
+        "evaluation_accuracy": 0.8076417166925541
+      },
+      "item_count365": {
+        "selection_accuracy": 0.6723293498642635,
+        "evaluation_accuracy": 0.6705288051159342
+      },
+      "item_fraction365": {
+        "selection_accuracy": 0.7771472950659092,
+        "evaluation_accuracy": 0.7820900326042848
+      },
+      "ensemble": {
+        "selection_accuracy": 0.9308023844840615,
+        "evaluation_accuracy": 0.9288722835593244,
+        "internal_selection_accuracy": 0.9315748968026306,
+        "C": 1.0
+      }
+    },
+    "seed": 42,
+    "seen_negative_rows": 6527,
+    "stacking": {
+      "candidates": {
+        "3": {
+          "internal_selection_accuracy": 0.9306653606660603,
+          "iterations": 673
+        },
+        "5": {
+          "internal_selection_accuracy": 0.9333240047575736,
+          "iterations": 698
+        }
+      },
+      "internal_selection_accuracy": 0.9333240047575736,
+      "depth": 5,
+      "iterations": 698,
+      "evaluation_accuracy": 0.9327764017743447,
+      "linear_internal_selection_accuracy": 0.9315748968026306,
+      "linear_evaluation_accuracy": 0.9288722835593244,
+      "selected": "stacker"
+    },
+    "selected_model": "stacker",
+    "selected_evaluation_accuracy": 0.9327764017743447
+  },
+  "ablation": {
+    "static_ensemble": {
+      "evaluation_accuracy": 0.8847515497530191,
+      "C": 0.1
+    },
+    "without_time_ALS": {
+      "evaluation_accuracy": 0.9285084589227992,
+      "C": 1.0
+    },
+    "without_item_time_statistics": {
+      "evaluation_accuracy": 0.9001441305290849,
+      "C": 1.0
+    }
+  },
+  "cohort_checks": {
+    "test_seen_pair_rows": 1014,
+    "test_query_within_user_history": 0.9466,
+    "validation_pre_first_book_event_fraction": 0.13503935630575475,
+    "test_pre_first_book_event_fraction": 0.133275
+  },
+  "checks": {
+    "rows": 20000,
+    "input_order_and_header_match": true,
+    "each_prediction_is_candidate": true,
+    "pair_swap_antisymmetry": true
+  },
+  "accepted_task3_gradescope_MSE": 0.704589533460822
+}
