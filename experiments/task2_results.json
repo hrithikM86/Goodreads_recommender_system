@@ -1,0 +1,69 @@
+{
+  "split_sizes": [
+    1675478,
+    93082,
+    93083
+  ],
+  "negative_sampling": "uniform item, excluding all known user interactions",
+  "feature_names": [
+    "popularity",
+    "bpr32",
+    "bpr64",
+    "als64",
+    "als128",
+    "cosine_max",
+    "cosine_top10",
+    "jaccard_max"
+  ],
+  "weights": [
+    0.6301982360015239,
+    0.43696367972466116,
+    0.7193547958556337,
+    -0.15900388923577619,
+    1.7067236938262473,
+    11.379073939437701,
+    -0.591832119998958,
+    0.9132742781523526
+  ],
+  "results": {
+    "popularity": {
+      "selection_accuracy": 0.7531907350508155,
+      "evaluation_accuracy": 0.7526723461856623
+    },
+    "bpr32": {
+      "selection_accuracy": 0.9200275026320879,
+      "evaluation_accuracy": 0.9203828840926914
+    },
+    "bpr64": {
+      "selection_accuracy": 0.9386884682323113,
+      "evaluation_accuracy": 0.9397312076318984
+    },
+    "als64": {
+      "selection_accuracy": 0.9361423261210545,
+      "evaluation_accuracy": 0.9363578741553238
+    },
+    "als128": {
+      "selection_accuracy": 0.9282890354740981,
+      "evaluation_accuracy": 0.9300839036129046
+    },
+    "cosine_max": {
+      "selection_accuracy": 0.9225414150963667,
+      "evaluation_accuracy": 0.9222897843859781
+    },
+    "cosine_top10": {
+      "selection_accuracy": 0.9316570335832921,
+      "evaluation_accuracy": 0.9317705703511919
+    },
+    "jaccard_max": {
+      "selection_accuracy": 0.9209406759631292,
+      "evaluation_accuracy": 0.9211725019606158
+    },
+    "ensemble": {
+      "selection_accuracy": 0.9631507702885628,
+      "evaluation_accuracy": 0.963269340266214,
+      "internal_selection_accuracy": 0.9613256700864801,
+      "C": 0.1
+    }
+  },
+  "seed": 42
+}
