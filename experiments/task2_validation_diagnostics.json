@@ -1,0 +1,12 @@
+{
+  "old_ensemble_uniform_validation_accuracy": 0.963269340266214,
+  "old_ensemble_popularity_matched_validation_accuracy": 0.9087373634283381,
+  "reported_old_ensemble_gradescope_accuracy": 0.9056,
+  "new_ensemble_popularity_matched_validation_accuracy": 0.9434053479153014,
+  "replayed_original_prediction_agreement": 1.0,
+  "replacement_changed_predictions": 1280,
+  "seen_feature_ablation": {
+    "without_seen_indicator_evaluation_accuracy": 0.9326837338719207,
+    "C": 0.01
+  }
+}

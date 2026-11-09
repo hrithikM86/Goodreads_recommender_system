@@ -1,7 +1,8 @@
 """Task 2 implicit-feedback ensemble; run from any directory with --data-dir."""
 import os
-os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
-import sys,argparse,json,time
+os.environ['OPENBLAS_NUM_THREADS']='1'
+import sys,argparse,json,time,hashlib
+from types import SimpleNamespace
 from pathlib import Path
 import numpy as np,pandas as pd
 from scipy.sparse import coo_matrix
@@ -11,15 +12,28 @@ from implicit.bpr import BayesianPersonalizedRanking
 from implicit.als import AlternatingLeastSquares
 
 
-def train_models(X):
+def train_models(X, cache_dir):
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    matrix_hash=hashlib.sha256(X.indptr.tobytes()+X.indices.tobytes()+X.data.tobytes()).hexdigest()
     trials=[('bpr32',BayesianPersonalizedRanking(factors=32,iterations=100,regularization=.01,learning_rate=.01,random_state=42,num_threads=1)),
             ('bpr64',BayesianPersonalizedRanking(factors=64,iterations=200,regularization=.01,learning_rate=.03,random_state=17,num_threads=1)),
             ('als64',AlternatingLeastSquares(factors=64,iterations=20,regularization=.1,alpha=20,random_state=42,num_threads=2)),
             ('als128',AlternatingLeastSquares(factors=128,iterations=20,regularization=.1,alpha=40,random_state=42,num_threads=2))]
     models={}
     for name,model in trials:
+        params={k:getattr(model,k,None) for k in ['factors','iterations','regularization','learning_rate','alpha','random_state','verify_negative_samples','num_threads']}
+        params['implicit_version']=__import__('implicit').__version__
+        signature=hashlib.sha256((matrix_hash+json.dumps(params,sort_keys=True)).encode()).hexdigest()[:24]
+        cache=cache_dir/(name+'_'+signature+'.npz')
+        if cache.exists():
+            with np.load(cache) as saved:
+                models[name]=SimpleNamespace(user_factors=saved['user_factors'],item_factors=saved['item_factors'])
+            print('Loaded cached factors',name,flush=True)
+            continue
         print('Training',name,flush=True);start=time.time();model.fit(X,show_progress=False)
-        models[name]=model;print(name,'seconds',round(time.time()-start,1),flush=True)
+        models[name]=model
+        np.savez_compressed(cache,user_factors=model.user_factors,item_factors=model.item_factors)
+        print(name,'seconds',round(time.time()-start,1),flush=True)
     return models
 
 
@@ -28,6 +42,9 @@ def features(X,models,qu,qi):
     out={"popularity":np.log1p(pop[np.maximum(qi,0)])}
     out['popularity'][qi<0]=0
     valid=(qu>=0)&(qi>=0)
+    seen=np.zeros(len(qu))
+    seen[valid]=np.asarray(X[qu[valid],qi[valid]]).ravel()>0
+    out['already_seen']=seen
     for name,m in models.items():
         score=np.zeros(len(qu));score[valid]=np.einsum('ij,ij->i',m.user_factors[qu[valid]],m.item_factors[qi[valid]])
         out[name]=score
@@ -76,29 +93,34 @@ def main():
     order=np.random.RandomState(42).permutation(len(u));a=int(.9*len(u));b=int(.95*len(u));idx=order[:a];hold=order[a:]
     X=coo_matrix((np.ones(len(idx),dtype=np.float32),(u[idx],i[idx])),shape=(U,I)).tocsr();X.data[:]=1
     rng=np.random.RandomState(43);negative=[]
-    histories=[set(full.indices[full.indptr[k]:full.indptr[k+1]]) for k in range(U)]
-    for user in u[hold]:
-        item=rng.randint(I)
-        while item in histories[user]:item=rng.randint(I)
+    for positive in i[hold]:
+        # Draw an interaction uniformly, making item probability proportional to training popularity.
+        # A negative may already be in the user's history, as occurs in the supplied test pairs.
+        item=i[idx[rng.randint(len(idx))]]
+        while item==positive:item=i[idx[rng.randint(len(idx))]]
         negative.append(item)
     qu=np.r_[u[hold],u[hold]];qi=np.r_[i[hold],negative]
-    models=train_models(X);names,scores=features(X,models,qu,qi)
+    models=train_models(X,args.output_dir/'factors');names,scores=features(X,models,qu,qi)
     d=scores[:len(hold)]-scores[len(hold):];v=d[:b-a];t=d[b-a:]
     # Ties count as half credit for local pairwise metrics.
     def accuracy(m):return float(np.mean((m>0)+.5*(m==0)))
     results={name:{'selection_accuracy':accuracy(v[:,k]),'evaluation_accuracy':accuracy(t[:,k])} for k,name in enumerate(names)}
     weights,selection=fit_blend(v)
     results['ensemble']={'selection_accuracy':accuracy(v@weights),'evaluation_accuracy':accuracy(t@weights),'internal_selection_accuracy':selection[0],'C':selection[1]}
-    report={'split_sizes':[a,b-a,len(u)-b],'negative_sampling':'uniform item, excluding all known user interactions','feature_names':names,'weights':weights.tolist(),'results':results,'seed':42}
+    report={'split_sizes':[a,b-a,len(u)-b],'negative_sampling':'popularity weighted using training-partition interactions; previously seen negatives allowed','feature_names':names,'weights':weights.tolist(),'results':results,'seed':42}
     print(json.dumps(report,indent=2),flush=True)
     (args.output_dir/'results.json').write_text(json.dumps(report,indent=2))
     np.savez_compressed(args.output_dir/'validation_margins.npz',selection=v,evaluation=t)
+    np.savez_compressed(args.output_dir/'pair_features.npz',scores=scores,users=qu,items=qi)
+    report['seen_negative_rows']=int(np.count_nonzero(scores[len(hold):,names.index('already_seen')]))
+    (args.output_dir/'results.json').write_text(json.dumps(report,indent=2))
     if args.predict:
-        models=train_models(full)
+        models=train_models(full,args.output_dir/'factors')
         test=pd.read_csv(args.data_dir/'task_2_test.csv')
         um=dict(zip(users,range(U)));im=dict(zip(items,range(I)))
         testu=np.array([um.get(x,-1) for x in test.user]);i1=np.array([im.get(x,-1) for x in test.item1]);i2=np.array([im.get(x,-1) for x in test.item2])
         newnames,f=features(full,models,np.r_[testu,testu],np.r_[i1,i2]);assert names==newnames
+        np.savez_compressed(args.output_dir/'test_pair_features.npz',scores=f,users=np.r_[testu,testu],items=np.r_[i1,i2])
         margin=(f[:len(test)]-f[len(test):])@weights
         chosen=np.where(margin>=0,test.item1,test.item2)
         # Deterministic popularity fallback whenever the user or either item is unseen.

@@ -4,9 +4,10 @@
     93082,
     93083
   ],
-  "negative_sampling": "uniform item, excluding all known user interactions",
+  "negative_sampling": "popularity weighted using training-partition interactions; previously seen negatives allowed",
   "feature_names": [
     "popularity",
+    "already_seen",
     "bpr32",
     "bpr64",
     "als64",
@@ -16,54 +17,60 @@
     "jaccard_max"
   ],
   "weights": [
-    0.6301982360015239,
-    0.43696367972466116,
-    0.7193547958556337,
-    -0.15900388923577619,
-    1.7067236938262473,
-    11.379073939437701,
-    -0.591832119998958,
-    0.9132742781523526
+    -0.30941093974255557,
+    -14.616555753427045,
+    0.46844611091012456,
+    0.6884329256115288,
+    -0.1375415945542343,
+    1.0967128418368013,
+    13.82500593281734,
+    -0.4933324335449437,
+    -6.54353197114636
   ],
   "results": {
     "popularity": {
-      "selection_accuracy": 0.7531907350508155,
-      "evaluation_accuracy": 0.7526723461856623
+      "selection_accuracy": 0.48976171547667646,
+      "evaluation_accuracy": 0.49197490411783035
+    },
+    "already_seen": {
+      "selection_accuracy": 0.49098644206183795,
+      "evaluation_accuracy": 0.4908039061912487
     },
     "bpr32": {
-      "selection_accuracy": 0.9200275026320879,
-      "evaluation_accuracy": 0.9203828840926914
+      "selection_accuracy": 0.9035688962420232,
+      "evaluation_accuracy": 0.9022485308810416
     },
     "bpr64": {
-      "selection_accuracy": 0.9386884682323113,
-      "evaluation_accuracy": 0.9397312076318984
+      "selection_accuracy": 0.9145699490771578,
+      "evaluation_accuracy": 0.9125081916139359
     },
     "als64": {
-      "selection_accuracy": 0.9361423261210545,
-      "evaluation_accuracy": 0.9363578741553238
+      "selection_accuracy": 0.8685460131926688,
+      "evaluation_accuracy": 0.8697506526433398
     },
     "als128": {
-      "selection_accuracy": 0.9282890354740981,
-      "evaluation_accuracy": 0.9300839036129046
+      "selection_accuracy": 0.8711136417352442,
+      "evaluation_accuracy": 0.8728016931125985
     },
     "cosine_max": {
-      "selection_accuracy": 0.9225414150963667,
-      "evaluation_accuracy": 0.9222897843859781
+      "selection_accuracy": 0.8762488988203949,
+      "evaluation_accuracy": 0.8773352814155109
     },
     "cosine_top10": {
-      "selection_accuracy": 0.9316570335832921,
-      "evaluation_accuracy": 0.9317705703511919
+      "selection_accuracy": 0.8699426312283792,
+      "evaluation_accuracy": 0.8703468947068745
     },
     "jaccard_max": {
-      "selection_accuracy": 0.9209406759631292,
-      "evaluation_accuracy": 0.9211725019606158
+      "selection_accuracy": 0.8740035667475989,
+      "evaluation_accuracy": 0.8752564915183224
     },
     "ensemble": {
-      "selection_accuracy": 0.9631507702885628,
-      "evaluation_accuracy": 0.963269340266214,
-      "internal_selection_accuracy": 0.9613256700864801,
-      "C": 0.1
+      "selection_accuracy": 0.9430717002213103,
+      "evaluation_accuracy": 0.9434053479153014,
+      "internal_selection_accuracy": 0.9439222216253962,
+      "C": 1.0
     }
   },
-  "seed": 42
+  "seed": 42,
+  "seen_negative_rows": 3390
 }

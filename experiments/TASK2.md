@@ -1,3 +1,5 @@
+> **Superseded validation protocol:** the 96.33% local result below came from uniformly sampled negatives and did not transfer (reported Gradescope accuracy: 90.56%). The current runner uses the corrected protocol in [TASK2_VALIDATION_FIX.md](TASK2_VALIDATION_FIX.md). The historical runner is available at commit `f6e9d0988010eec6ae6155db8dfcd072919bd1eb`. Historical metrics are preserved in `task2_uniform_validation_results.json`; `task2_results.json` now records the corrected protocol.
+
 # Task 2: interaction-prediction baseline ensemble
 
 ## Methods and lecture connection
