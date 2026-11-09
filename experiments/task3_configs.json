@@ -1,0 +1,133 @@
+{
+  "bias_static": {
+    "user": 5,
+    "item": 10
+  },
+  "bias_drift_item": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "item90": 30
+  },
+  "bias_temporal180": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "user180": 10,
+    "item180": 30,
+    "userday": 10
+  },
+  "bias_temporal90": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "user90": 10,
+    "item90": 30,
+    "userday": 5
+  },
+  "bias_temporal90_strong": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 40,
+    "user90": 30,
+    "item90": 60,
+    "userday": 20
+  },
+  "grid_drift_u5_d2": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 2,
+    "userday": 20
+  },
+  "grid_drift_u5_d10": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 10,
+    "userday": 20
+  },
+  "grid_drift_u5_d40": {
+    "user": 5,
+    "item": 10,
+    "month": 100,
+    "drift": 40,
+    "userday": 20
+  },
+  "grid_drift_u15_d2": {
+    "user": 15,
+    "item": 10,
+    "month": 100,
+    "drift": 2,
+    "userday": 20
+  },
+  "grid_drift_u15_d10": {
+    "user": 15,
+    "item": 10,
+    "month": 100,
+    "drift": 10,
+    "userday": 20
+  },
+  "grid_drift_u15_d40": {
+    "user": 15,
+    "item": 10,
+    "month": 100,
+    "drift": 40,
+    "userday": 20
+  },
+  "grid_asymmetric_2": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift_pos": 2,
+    "drift_neg": 2,
+    "userday": 20
+  },
+  "grid_asymmetric_10": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift_pos": 10,
+    "drift_neg": 10,
+    "userday": 20
+  },
+  "grid_asymmetric_40": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift_pos": 40,
+    "drift_neg": 40,
+    "userday": 20
+  },
+  "grid_period_reg10": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "user180": 10,
+    "item180": 10,
+    "userday": 10
+  },
+  "grid_period_reg50": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "user180": 50,
+    "item180": 50,
+    "userday": 50
+  },
+  "grid_period_reg100": {
+    "user": 10,
+    "item": 10,
+    "month": 100,
+    "drift": 20,
+    "user180": 100,
+    "item180": 100,
+    "userday": 100
+  }
+}
