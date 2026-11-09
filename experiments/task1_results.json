@@ -1,0 +1,231 @@
+{
+  "round1": {
+    "bias": {
+      "selection_MSE": 0.597960991001522,
+      "evaluation_MSE": 0.6006478754098357,
+      "seconds": 5.611685752868652
+    },
+    "svd16_reg.1": {
+      "selection_MSE": 0.5887089963421395,
+      "evaluation_MSE": 0.5918348491200008,
+      "seconds": 22.231364011764526
+    },
+    "svd32_reg.1": {
+      "selection_MSE": 0.5887673995320037,
+      "evaluation_MSE": 0.592060275580247,
+      "seconds": 24.010317087173462
+    },
+    "svd64_reg.1": {
+      "selection_MSE": 0.5889198434798626,
+      "evaluation_MSE": 0.5917876814159595,
+      "seconds": 32.44156002998352
+    },
+    "svd32_reg.05": {
+      "selection_MSE": 0.5958318840795133,
+      "evaluation_MSE": 0.5988074729958681,
+      "seconds": 25.3392550945282
+    },
+    "svd32_reg.2": {
+      "selection_MSE": 0.597058285887038,
+      "evaluation_MSE": 0.6000293685600543,
+      "seconds": 26.292216062545776
+    }
+  },
+  "round2": {
+    "svd32_reg.02_100": {
+      "selection_MSE": 0.7030905551620357,
+      "evaluation_MSE": 0.7042315924653606,
+      "seconds": 57.21902108192444
+    },
+    "svd64_reg.02_100": {
+      "selection_MSE": 0.6803335706351311,
+      "evaluation_MSE": 0.6805942100784713,
+      "seconds": 68.62067985534668
+    },
+    "svd128_reg.05_100": {
+      "selection_MSE": 0.6025689422878403,
+      "evaluation_MSE": 0.60373220418403,
+      "seconds": 73.4842541217804
+    }
+  },
+  "neighbors": {
+    "0": {
+      "selection_MSE": 0.563835265987396,
+      "evaluation_MSE": 0.5674674133559504
+    },
+    "10": {
+      "selection_MSE": 0.5711507050825433,
+      "evaluation_MSE": 0.5739416014744697
+    },
+    "50": {
+      "selection_MSE": 0.5749381893996758,
+      "evaluation_MSE": 0.5778400475515536
+    }
+  },
+  "neighbors2": {
+    "item_jaccard": {
+      "selection_MSE": 0.5639299149334587,
+      "evaluation_MSE": 0.5676243908639459
+    },
+    "item_residual": {
+      "selection_MSE": 0.6035242765973126,
+      "evaluation_MSE": 0.6083091882151779
+    },
+    "user_binary": {
+      "selection_MSE": 0.6044990931814486,
+      "evaluation_MSE": 0.607928368811019
+    },
+    "user_jaccard": {
+      "selection_MSE": 0.6072700000998723,
+      "evaluation_MSE": 0.6103199212908617
+    },
+    "user_residual": {
+      "selection_MSE": 0.6278472066870002,
+      "evaluation_MSE": 0.6310513162582945
+    }
+  },
+  "neighbors_tune": {
+    "3_1": {
+      "selection_MSE": 0.6438497937474692,
+      "evaluation_MSE": 0.6429504153311744
+    },
+    "3_2": {
+      "selection_MSE": 0.6582193298356838,
+      "evaluation_MSE": 0.6574890186914756
+    },
+    "3_3": {
+      "selection_MSE": 0.675930546361341,
+      "evaluation_MSE": 0.6746847069712355
+    },
+    "3_5": {
+      "selection_MSE": 0.7069218966702256,
+      "evaluation_MSE": 0.7046392935255228
+    },
+    "5_1": {
+      "selection_MSE": 0.6002154740890857,
+      "evaluation_MSE": 0.6015752540489493
+    },
+    "5_2": {
+      "selection_MSE": 0.6162599979508399,
+      "evaluation_MSE": 0.6176667125847283
+    },
+    "5_3": {
+      "selection_MSE": 0.6387338465050811,
+      "evaluation_MSE": 0.6395142158599217
+    },
+    "5_5": {
+      "selection_MSE": 0.6790972830808994,
+      "evaluation_MSE": 0.6783478243843588
+    },
+    "10_1": {
+      "selection_MSE": 0.5709315654141983,
+      "evaluation_MSE": 0.5745271770744026
+    },
+    "10_2": {
+      "selection_MSE": 0.5857201616722584,
+      "evaluation_MSE": 0.5887794843448274
+    },
+    "10_3": {
+      "selection_MSE": 0.6117959274284618,
+      "evaluation_MSE": 0.613837219831269
+    },
+    "10_5": {
+      "selection_MSE": 0.660684878506911,
+      "evaluation_MSE": 0.6606291684530508
+    },
+    "20_1": {
+      "selection_MSE": 0.563479449398076,
+      "evaluation_MSE": 0.5670200808932219
+    },
+    "20_2": {
+      "selection_MSE": 0.5742006266659048,
+      "evaluation_MSE": 0.5775295522452956
+    },
+    "20_3": {
+      "selection_MSE": 0.6006747672552188,
+      "evaluation_MSE": 0.6030079798833728
+    },
+    "20_5": {
+      "selection_MSE": 0.653629074847044,
+      "evaluation_MSE": 0.6537284919350183
+    },
+    "40_1": {
+      "selection_MSE": 0.5638370975348025,
+      "evaluation_MSE": 0.5674671924161776
+    },
+    "40_2": {
+      "selection_MSE": 0.5706234072766591,
+      "evaluation_MSE": 0.5742664340802468
+    },
+    "40_3": {
+      "selection_MSE": 0.5960991048618033,
+      "evaluation_MSE": 0.5987239465416342
+    },
+    "40_5": {
+      "selection_MSE": 0.6508551699903604,
+      "evaluation_MSE": 0.6510913586345867
+    },
+    "80_1": {
+      "selection_MSE": 0.5665238169251409,
+      "evaluation_MSE": 0.5704008820235272
+    },
+    "80_2": {
+      "selection_MSE": 0.5705552335480074,
+      "evaluation_MSE": 0.5744084514792002
+    },
+    "80_3": {
+      "selection_MSE": 0.5947155304392082,
+      "evaluation_MSE": 0.5974451131960357
+    },
+    "80_5": {
+      "selection_MSE": 0.6499932047677531,
+      "evaluation_MSE": 0.6502299637464328
+    }
+  },
+  "learned_neighbors": {
+    "1.0": {
+      "selection_MSE": 0.656005822815665,
+      "evaluation_MSE": 0.6561200436942862
+    },
+    "5.0": {
+      "selection_MSE": 0.6028779809882265,
+      "evaluation_MSE": 0.6039239565009219
+    },
+    "20.0": {
+      "selection_MSE": 0.5840736109681292,
+      "evaluation_MSE": 0.5856838199504881
+    },
+    "100.0": {
+      "selection_MSE": 0.5835762843038348,
+      "evaluation_MSE": 0.5859565765298144
+    }
+  },
+  "blend": {
+    "weights": {
+      "tuned_20_1": 0.0,
+      "cf_0": 0.0,
+      "tuned_40_1": 0.0,
+      "cf2_item_jaccard": 5.537906116488274e-18,
+      "tuned_80_1": 0.0,
+      "tuned_80_2": 5.058204477130914e-18,
+      "tuned_40_2": 0.0,
+      "tuned_10_1": 0.1062846995076872,
+      "cf_10": 0.0,
+      "tuned_20_2": 0.31124904671666187,
+      "cf_50": 1.839479277564572e-18,
+      "tuned_10_2": 0.1460450195793872,
+      "svd_bias": 3.1371337527581602e-18,
+      "svd_svd16_reg.1": 0.1541547817989482,
+      "svd_svd32_reg.1": 0.16261770829034805,
+      "svd_svd64_reg.1": 0.1196487441069676
+    },
+    "selection_MSE": 0.5518386620970069,
+    "evaluation_MSE": 0.5542632463064436,
+    "optimizer_success": true,
+    "best_single": {
+      "name": "tuned_20_1",
+      "selection_MSE": 0.563479449398076,
+      "evaluation_MSE": 0.5670200808932219
+    }
+  }
+}
