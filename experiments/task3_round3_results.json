@@ -908,5 +908,11 @@
     "scikit-learn": "1.8.0",
     "catboost": "1.2.10"
   },
-  "prediction_note": "Local evaluation uses stackers fitted on 70,268 selection ratings; production stackers use all 140,536 held-out training ratings. No independent score is claimed for the larger refit."
+  "prediction_note": "Local evaluation uses stackers fitted on 70,268 selection ratings; production stackers use all 140,536 held-out training ratings. No independent score is claimed for the larger refit.",
+  "reported_leaderboard_MSE": {
+    "primary": 0.6825445785868727,
+    "conservative": 0.6832343420425995,
+    "refit": 0.6835831014779641
+  },
+  "accepted_variant": "primary"
 }

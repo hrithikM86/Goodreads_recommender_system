@@ -121,3 +121,9 @@ rows); the approximate conditional 95% interval is [0.00031696, 0.00081546].
 This describes uncertainty within the reused local split, not a guarantee about
 the public or hidden evaluation. Production stackers then use the larger
 all-meta refit described above; there is no fresh holdout score for that refit.
+
+## Reported leaderboard feedback
+
+New primary: **0.6825445785868727**; conservative blend: 0.6832343420425995;
+accepted-architecture larger refit: 0.6835831014779641. The new primary is now
+the accepted reference for the next experiment.
