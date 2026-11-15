@@ -100,3 +100,9 @@ stages, input files are fingerprinted, and legacy validation labels/dates/order
 are verified before reuse. The MF and SVD++ fitting workers run independently;
 full fitting also regenerates baseline component features. The two exported
 prediction candidates differ only in their final blend with the previous model.
+
+## Accepted public result
+
+The primary ensemble scored 0.6940055616901505 on Gradescope, versus
+0.6964250044227708 for its 50/50 blend. The primary is the accepted reference
+for the next optimization round.

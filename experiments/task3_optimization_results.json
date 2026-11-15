@@ -361,5 +361,10 @@
     "scikit-surprise": "1.1.5",
     "catboost": "1.2.10"
   },
-  "previous_reported_public_MSE": 0.704589533460822
+  "previous_reported_public_MSE": 0.704589533460822,
+  "reported_leaderboard_MSE": {
+    "primary": 0.6940055616901505,
+    "blend": 0.6964250044227708
+  },
+  "accepted_variant": "primary"
 }
