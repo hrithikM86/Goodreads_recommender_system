@@ -364,5 +364,10 @@
     "task2_optimize.py": "4b6fc8b58b4a4e12a5d50c454697a1c4124ea6680dde8cd93909b39ec40cbf33",
     "task2_slim_kernel.cpp": "e8281173dcaf3a7e56d203fc94333e3ef55072d19de97bdd4965261ea63a8809",
     "task2_optimize_checks.py": "1d36affd8762c583fc316443de032db0fb2d120e1fb08788ef0534943448df96"
+  },
+  "accepted_variant": "with_zero",
+  "reported_leaderboard_accuracy": {
+    "with_zero": 0.9505,
+    "without_zero": 0.9496
   }
 }

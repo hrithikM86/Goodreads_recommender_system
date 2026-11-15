@@ -97,3 +97,9 @@ The variants disagree on 279 rows. All supplied training/test input bytes are
 unchanged. Complete metrics, checksums and audit results are in
 `task2_optimization_results.json`. Prediction CSVs and fitted artifacts remain
 outside Git.
+
+## Accepted public result
+
+The user reported 95.05% for with-zero and 94.96% for without-zero. The with-zero
+variant is accepted, and the notebook Task 2 cell now invokes that runner.
+The original Task 2 runner remains available as the previous baseline.
