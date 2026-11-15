@@ -643,5 +643,11 @@
     "catboost": "1.2.10",
     "lightgbm": "4.7.0"
   },
-  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "reported_leaderboard_MSE": {
+    "primary": 0.6862066239120452,
+    "blend": 0.6855387514011825
+  },
+  "accepted_variant": "blend",
+  "reported_task3_rank": 123
 }

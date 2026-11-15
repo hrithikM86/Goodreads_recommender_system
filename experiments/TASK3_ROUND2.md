@@ -127,3 +127,8 @@ shared component caches live under `validation` and `full`. A data/config/schema
 check controls reuse of trained stackers. Use fresh output directories when
 changing component hyperparameters or source. The notebook invokes this runner.
 Tasks 1/2/4/5/6 retain their accepted implementations.
+
+## Reported leaderboard feedback
+
+Primary: 0.6862066239120452 MSE; fixed 50/50 blend: **0.6855387514011825**.
+The blend is the accepted reference for round 3; reported Task 3 rank: 123.
