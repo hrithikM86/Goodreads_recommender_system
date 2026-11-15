@@ -142,3 +142,12 @@ Files: `augmented/task_3_predictions.csv` is the new FM-feature stacker ensemble
 round-3 model. Both production variants use larger final training fits described
 above, not the selection-only fits used for the local comparison. The accepted
 public model remains unchanged pending leaderboard feedback.
+
+## Reported public feedback
+
+FM-augmented: 0.6833593918541966; 50/50 blend: 0.6828225885165874.
+Both are worse than accepted 0.6825445785868727. Per user preference, retain the
+model that performs best on known public scores; the round-3 primary remains
+accepted. Regenerable rejected SGD-FM parameter checkpoints were removed locally
+to make room for Task 5 experiments; input datasets, scores, audits, code and
+prediction files were retained.

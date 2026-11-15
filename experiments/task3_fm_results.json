@@ -601,5 +601,10 @@
     "depth8_evaluation.cbm": "680b756d9cc30883cf69a8cd89164f658d21bd83a798a7092e13124a7acc1061",
     "depth8_full.cbm": "dafc4a9548af747d8d8b91b32c74fef5249d445853a99962c1f7e58eb63c7838"
   },
-  "prediction_note": "Local scores use selection-only stacker fits. Final files use full-data component fits and all 140,536 meta-training labels; that larger refit has no independent local score."
+  "prediction_note": "Local scores use selection-only stacker fits. Final files use full-data component fits and all 140,536 meta-training labels; that larger refit has no independent local score.",
+  "reported_leaderboard_MSE": {
+    "augmented": 0.6833593918541966,
+    "blend50": 0.6828225885165874
+  },
+  "accepted_change": false
 }

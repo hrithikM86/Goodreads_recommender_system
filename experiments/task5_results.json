@@ -206,5 +206,6 @@
     "every_output_is_candidate": true,
     "pair_swap_antisymmetry": true
   },
-  "accepted_task4_gradescope_accuracy": 0.9403
+  "accepted_task4_gradescope_accuracy": 0.9403,
+  "reported_task5_public_accuracy": 0.9093402161638974
 }
