@@ -1,0 +1,84 @@
+{
+  "features": [
+    "accepted",
+    "svd_aggregate",
+    "cos10_1",
+    "cos20_2",
+    "cos10_2",
+    "svdpp24_e20",
+    "svdpp24_e50",
+    "svdpp24_e100",
+    "svdpp48_e20",
+    "svdpp48_e50",
+    "svdpp48_e100",
+    "joint_r0.25_p10",
+    "joint_r0.25_p50",
+    "joint_r1_p10",
+    "joint_r1_p50",
+    "joint_r4_p10",
+    "joint_r4_p50",
+    "user_count",
+    "user_mean",
+    "user_std",
+    "item_count",
+    "item_mean",
+    "item_std"
+  ],
+  "runs": {
+    "depth4": {
+      "depth": 4,
+      "iterations": 1791,
+      "inner_MSE": 0.5301119746399265
+    },
+    "depth6": {
+      "depth": 6,
+      "iterations": 1469,
+      "inner_MSE": 0.5298704450531824
+    }
+  },
+  "weights": {
+    "depth4": 0.5,
+    "depth6": 0.5
+  },
+  "inner_MSE": 0.5296638344118212,
+  "reference_evaluation_MSE": 0.5542632463064436,
+  "new_evaluation_MSE": 0.5384875114467605,
+  "blend50_evaluation_MSE": 0.5422224312669193,
+  "selection_rows": 91701,
+  "evaluation_rows": 91701,
+  "final_meta_rows": 183402,
+  "reference_public_MSE": 0.5538262939223092,
+  "input_manifest": {
+    "tasks_1_2_train.csv": "7d37e3c71f36f453a8470507072f4a6eb3c05de5024679c8e04b4fc9e285ff76",
+    "task_1_test.csv": "c80d5604f1a20fa2b69679db5da3c8058a0f3e6f42254c2c53f23ae428f35e73"
+  },
+  "audit": {
+    "new": {
+      "rows": 20000,
+      "sha256": "70245eb1bbd22a59a4d10cc2641901e67e3edcbdfecf430a2f4da48e87e3f153",
+      "input_columns_preserved": true,
+      "model_replay": true
+    },
+    "blend50": {
+      "rows": 20000,
+      "sha256": "d721b0f0ac39c869fd6195ca07b0482a358520f265603b16dbd56d181cdaf440",
+      "input_columns_preserved": true,
+      "model_replay": true
+    }
+  },
+  "checks": {
+    "naive_implicit_gradient_equivalence": true,
+    "SVDpp_parameter_replay": true,
+    "cold_factors_neutral": true,
+    "learned_neighbor_replay": true,
+    "self_book_predictors_excluded": true,
+    "validation_targets_held_out": true,
+    "full_ensemble_replay": true
+  },
+  "source_sha256": {
+    "task1_improve.py": "8341acd81f6e624dc61a35833c186112889846ada5a4644b7d6b77b40f8235c7",
+    "task1_svdpp_kernel.cpp": "be1e6c71458f0260619431d6599567e4b93bb4947e5660cd69f2dda7dd1afe0c",
+    "task1_improve_stack.py": "fe96927006d8ac77f953264342ebc3f5d3c2a5f667cebbf32fb5b46598ae5ca7",
+    "task1_6_checks.py": "8c7ec00301fce8cfefe7084b3ba27dd3d0a4f0300977b9168fa691f7f865f766"
+  }
+}

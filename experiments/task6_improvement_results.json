@@ -1,0 +1,83 @@
+{
+  "runs": {
+    "lgb": {
+      "iterations": 1192,
+      "recent_weighted": false,
+      "selection_MAE": 7320803.32681051,
+      "evaluation_MAE": 7573808.803513465
+    },
+    "recent": {
+      "iterations": 1122,
+      "recent_weighted": true,
+      "selection_MAE": 7258468.419686378,
+      "evaluation_MAE": 7473743.73828174
+    },
+    "balanced": {
+      "iterations": 561,
+      "recent_weighted": false,
+      "selection_MAE": 7216689.211279406,
+      "evaluation_MAE": 7447265.610206512
+    },
+    "cat": {
+      "iterations": 1800,
+      "recent_weighted": false,
+      "selection_MAE": 7209993.711030591,
+      "evaluation_MAE": 7446895.296103099
+    }
+  },
+  "new_weights": {
+    "lgb": 0.0,
+    "recent": 0.0,
+    "balanced": 0.45326855755049933,
+    "cat": 0.5467314424495008
+  },
+  "blend_weights": {
+    "accepted": 0.13833201728720498,
+    "lgb": 0.0,
+    "recent": 0.0,
+    "balanced": 0.44086204832498915,
+    "cat": 0.4208059343878058
+  },
+  "reference_selection_MAE": 7231698.224984346,
+  "reference_evaluation_MAE": 7457904.6219744105,
+  "new_selection_MAE": 7186783.908340849,
+  "new_evaluation_MAE": 7422607.322479249,
+  "blend_selection_MAE": 7185867.834001889,
+  "blend_evaluation_MAE": 7419901.322320926,
+  "reference_public_MAE": 8958810.647357272,
+  "input_manifest": {
+    "task_6_train.csv": "9daabd75375f2fcb8f4503bbbedee5111a7cde6cb67c0268ca4544ce0bf8cd7e",
+    "task_6_test.csv": "14cc58faac56d2e823c7efa5754b0d9af5b38c1c6353ba9cb94916d903a5fba8"
+  },
+  "train_rows": 192034,
+  "selection_rows": 55403,
+  "evaluation_rows": 55403,
+  "audit": {
+    "new": {
+      "rows": 55403,
+      "sha256": "37022074f832bdaedfb95d9d9cc470f1b6983cc61b7b98bab0f228e6fe7a8c32",
+      "input_columns_preserved": true,
+      "model_replay": true
+    },
+    "blend": {
+      "rows": 55403,
+      "sha256": "69782df95a1719443344984e47e43b6c83fcdf36879b0f5535569ca857ab379a",
+      "input_columns_preserved": true,
+      "model_replay": true
+    }
+  },
+  "checks": {
+    "target_timestamp_perturbation": true,
+    "singleton_exclusion": true,
+    "future_quantiles_independently_checked": true,
+    "stage_feature_reconstruction": true,
+    "row_alignment": true,
+    "nonnegative_seconds": true,
+    "full_ensemble_replay": true
+  },
+  "source_sha256": {
+    "task6_improve.py": "3be684ec543b0c0501d7f27862a21ed6ed636ba4f76caa44bfa39c611873e8a8",
+    "task6_improve_models.py": "3a89b4e70e099b597c1ed014ef361fa3b64063a95226382d878ab28afb3e9fcc",
+    "task1_6_checks.py": "8c7ec00301fce8cfefe7084b3ba27dd3d0a4f0300977b9168fa691f7f865f766"
+  }
+}
