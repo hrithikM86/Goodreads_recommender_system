@@ -96,3 +96,9 @@ Exported files are **exploratory leaderboard candidates**, not proven upgrades:
 `conservative` is 25% new / 75% accepted. No additional weight is chosen from the
 separate evaluation results. Each final stacker uses all 140,536 meta-training
 rows, so these local scores describe the earlier 70,268-row stacker fits.
+
+## Reported leaderboard feedback
+
+Updated stacker alone: 0.6838784593036632; 50/50 blend: 0.6829861412822404;
+25% new blend: 0.6827090155188005. All are worse than accepted 0.6825445785868727.
+The round-3 primary remains accepted.

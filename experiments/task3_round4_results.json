@@ -757,5 +757,11 @@
     "scipy": "1.17.0",
     "scikit-learn": "1.8.0",
     "catboost": "1.2.10"
-  }
+  },
+  "reported_leaderboard_MSE": {
+    "raw": 0.6838784593036632,
+    "primary": 0.6829861412822404,
+    "conservative": 0.6827090155188005
+  },
+  "accepted_change": false
 }
