@@ -108,3 +108,9 @@ respectively, from the accepted previous submission.
 component scores, feature importances and audit results. The notebook Task 4 cell
 runs the selected pipeline. Its Task 2 cell now points to the confirmed accepted
 with-zero model (95.05% public accuracy); Tasks 1, 3, 5 and 6 remain unchanged.
+
+## Accepted public result
+
+The user reported 0.9456 for the primary ensemble and 0.9466 for the 50/50
+blend, versus 0.9403 previously. The 50/50 blend is accepted; the notebook now
+copies `task_4_conservative_predictions.csv` from the optimized runner.
