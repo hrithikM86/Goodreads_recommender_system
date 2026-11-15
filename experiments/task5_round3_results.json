@@ -1,0 +1,490 @@
+{
+  "sequence_stage": {
+    "weights": {
+      "depth5": 0,
+      "depth7": 0,
+      "nn": 1
+    },
+    "new_weight": 1,
+    "inner_accuracy": 0.9202673119022929,
+    "reference_inner_accuracy": 0.9168683027998618,
+    "runs": {
+      "depth5": {
+        "depth": 5,
+        "iterations": 319,
+        "inner_accuracy": 0.9164650305334716
+      },
+      "depth7": {
+        "depth": 7,
+        "iterations": 330,
+        "inner_accuracy": 0.9169835234474017
+      },
+      "nn": {
+        "epochs": 16,
+        "inner_accuracy": 0.9202673119022929,
+        "inner_blend_accuracy": 0.9202673119022929,
+        "new_weight": 1
+      }
+    },
+    "reference_evaluation_accuracy": 0.9166916322909225,
+    "new_evaluation_accuracy": 0.9206323600580739,
+    "primary_evaluation_accuracy": 0.9206323600580739,
+    "blend50_evaluation_accuracy": 0.920574747079022,
+    "reference_public_accuracy": 0.9136957573802226,
+    "features": [
+      "fpmc32_uniform_e15_personal",
+      "fpmc32_uniform_e15_last",
+      "fpmc32_uniform_e15_recent3",
+      "fpmc32_uniform_e15_bias",
+      "fpmc32_uniform_e15_joint",
+      "fpmc32_uniform_e40_personal",
+      "fpmc32_uniform_e40_last",
+      "fpmc32_uniform_e40_recent3",
+      "fpmc32_uniform_e40_bias",
+      "fpmc32_uniform_e40_joint",
+      "fpmc64_mix_e15_personal",
+      "fpmc64_mix_e15_last",
+      "fpmc64_mix_e15_recent3",
+      "fpmc64_mix_e15_bias",
+      "fpmc64_mix_e15_joint",
+      "fpmc64_mix_e40_personal",
+      "fpmc64_mix_e40_last",
+      "fpmc64_mix_e40_recent3",
+      "fpmc64_mix_e40_bias",
+      "fpmc64_mix_e40_joint",
+      "fpmc32_uniform_e100_personal",
+      "fpmc32_uniform_e100_last",
+      "fpmc32_uniform_e100_recent3",
+      "fpmc32_uniform_e100_bias",
+      "fpmc32_uniform_e100_joint",
+      "fpmc64_mix_e100_personal",
+      "fpmc64_mix_e100_last",
+      "fpmc64_mix_e100_recent3",
+      "fpmc64_mix_e100_bias",
+      "fpmc64_mix_e100_joint",
+      "fpmc64_useruniform_e15_personal",
+      "fpmc64_useruniform_e15_last",
+      "fpmc64_useruniform_e15_recent3",
+      "fpmc64_useruniform_e15_bias",
+      "fpmc64_useruniform_e15_joint",
+      "fpmc64_useruniform_e40_personal",
+      "fpmc64_useruniform_e40_last",
+      "fpmc64_useruniform_e40_recent3",
+      "fpmc64_useruniform_e40_bias",
+      "fpmc64_useruniform_e40_joint",
+      "fpmc64_useruniform_e100_personal",
+      "fpmc64_useruniform_e100_last",
+      "fpmc64_useruniform_e100_recent3",
+      "fpmc64_useruniform_e100_bias",
+      "fpmc64_useruniform_e100_joint",
+      "weighted_knn_a0.25_s0_max",
+      "weighted_knn_a0.25_s0_mean",
+      "weighted_knn_a0.25_s0_last",
+      "weighted_knn_a0.25_s0_recent3",
+      "weighted_knn_a0.25_s0_recent10",
+      "weighted_knn_a0.25_s0_decay",
+      "weighted_knn_a0.25_s5_max",
+      "weighted_knn_a0.25_s5_mean",
+      "weighted_knn_a0.25_s5_last",
+      "weighted_knn_a0.25_s5_recent3",
+      "weighted_knn_a0.25_s5_recent10",
+      "weighted_knn_a0.25_s5_decay",
+      "weighted_knn_a0.5_s0_max",
+      "weighted_knn_a0.5_s0_mean",
+      "weighted_knn_a0.5_s0_last",
+      "weighted_knn_a0.5_s0_recent3",
+      "weighted_knn_a0.5_s0_recent10",
+      "weighted_knn_a0.5_s0_decay",
+      "weighted_knn_a0.5_s5_max",
+      "weighted_knn_a0.5_s5_mean",
+      "weighted_knn_a0.5_s5_last",
+      "weighted_knn_a0.5_s5_recent3",
+      "weighted_knn_a0.5_s5_recent10",
+      "weighted_knn_a0.5_s5_decay",
+      "weighted_knn_a0.75_s0_max",
+      "weighted_knn_a0.75_s0_mean",
+      "weighted_knn_a0.75_s0_last",
+      "weighted_knn_a0.75_s0_recent3",
+      "weighted_knn_a0.75_s0_recent10",
+      "weighted_knn_a0.75_s0_decay",
+      "weighted_knn_a0.75_s5_max",
+      "weighted_knn_a0.75_s5_mean",
+      "weighted_knn_a0.75_s5_last",
+      "weighted_knn_a0.75_s5_recent3",
+      "weighted_knn_a0.75_s5_recent10",
+      "weighted_knn_a0.75_s5_decay",
+      "sessionnn_50_all",
+      "sessionnn_50_tail5",
+      "sessionnn_50_forward5",
+      "sessionnn_200_all",
+      "sessionnn_200_tail5",
+      "sessionnn_200_forward5",
+      "sessionnn_support",
+      "prme_e20_personal",
+      "prme_e20_last",
+      "prme_e20_bias",
+      "prme_e20_joint",
+      "prme_e60_personal",
+      "prme_e60_last",
+      "prme_e60_bias",
+      "prme_e60_joint",
+      "prme_e120_personal",
+      "prme_e120_last",
+      "prme_e120_bias",
+      "prme_e120_joint",
+      "transrec_e20_personal",
+      "transrec_e20_last",
+      "transrec_e20_bias",
+      "transrec_e20_joint",
+      "transrec_e60_personal",
+      "transrec_e60_last",
+      "transrec_e60_bias",
+      "transrec_e60_joint",
+      "transrec_e120_personal",
+      "transrec_e120_last",
+      "transrec_e120_bias",
+      "transrec_e120_joint",
+      "ease50_whole",
+      "ease50_last",
+      "ease50_last3",
+      "ease50_decay",
+      "ease300_whole",
+      "ease300_last",
+      "ease300_last3",
+      "ease300_decay",
+      "ease1000_whole",
+      "ease1000_last",
+      "ease1000_last3",
+      "ease1000_decay",
+      "covered",
+      "fossil_e5_long",
+      "fossil_e5_recent",
+      "fossil_e5_joint",
+      "fossil_e15_long",
+      "fossil_e15_recent",
+      "fossil_e15_joint",
+      "fossil_e35_long",
+      "fossil_e35_recent",
+      "fossil_e35_joint",
+      "skip1_last",
+      "skip1_recent3",
+      "skip1_decay",
+      "skip1_reverse_decay",
+      "skip1_order_evidence",
+      "skip1_lift_decay",
+      "skip1_count_max",
+      "skip3_last",
+      "skip3_recent3",
+      "skip3_decay",
+      "skip3_reverse_decay",
+      "skip3_order_evidence",
+      "skip3_lift_decay",
+      "skip3_count_max",
+      "twohop_last",
+      "twohop_recent3",
+      "twohop_reverse",
+      "skip10_last",
+      "skip10_recent3",
+      "skip10_decay",
+      "skip10_reverse_decay",
+      "skip10_order_evidence",
+      "skip10_lift_decay",
+      "skip10_count_max",
+      "era0.1_level",
+      "era0.1_gap_last",
+      "era0.1_gap_mean3",
+      "era0.1_gap_mean",
+      "era0.1_gap_max",
+      "era0.1_distance_trend5",
+      "era0.1_distance_trend20",
+      "era0.1_percentile",
+      "era1.0_level",
+      "era1.0_gap_last",
+      "era1.0_gap_mean3",
+      "era1.0_gap_mean",
+      "era1.0_gap_max",
+      "era1.0_distance_trend5",
+      "era1.0_distance_trend20",
+      "era1.0_percentile",
+      "era10.0_level",
+      "era10.0_gap_last",
+      "era10.0_gap_mean3",
+      "era10.0_gap_mean",
+      "era10.0_gap_max",
+      "era10.0_distance_trend5",
+      "era10.0_distance_trend20",
+      "era10.0_percentile",
+      "attention_e0_attention",
+      "attention_e0_joint",
+      "attention_e0_last",
+      "attention_e0_recent3",
+      "attention_e0_max10",
+      "attention_e3_attention",
+      "attention_e3_joint",
+      "attention_e3_last",
+      "attention_e3_recent3",
+      "attention_e3_max10",
+      "attention_e10_attention",
+      "attention_e10_joint",
+      "attention_e10_last",
+      "attention_e10_recent3",
+      "attention_e10_max10",
+      "attention_e20_attention",
+      "attention_e20_joint",
+      "attention_e20_last",
+      "attention_e20_recent3",
+      "attention_e20_max10"
+    ],
+    "zero_rating_events_retained": true,
+    "numeric_timestamps_used": false,
+    "audit": {
+      "primary": {
+        "rows": 86786,
+        "sha256": "dbead4800013cff8bc0fea956f6066d93ceee047ff83ac7659c60a62de1b8e27",
+        "ids_order_preserved": true,
+        "saved_model_replay": true
+      },
+      "blend50": {
+        "rows": 86786,
+        "sha256": "e0629900171492d9ec67babbe13bddee971389fed77e75a54f8b71be99bd4c36",
+        "ids_order_preserved": true,
+        "saved_model_replay": true
+      },
+      "new_only": {
+        "rows": 86786,
+        "sha256": "dbead4800013cff8bc0fea956f6066d93ceee047ff83ac7659c60a62de1b8e27",
+        "ids_order_preserved": true,
+        "saved_model_replay": true
+      }
+    },
+    "checks": {
+      "direct_transition_enumeration": true,
+      "exact_two_hop_path_check": true,
+      "community_order_dense_optimum": true,
+      "attention_finite_difference_gradient": true,
+      "final_attention_parameter_replay": true,
+      "community_order_parameter_replay": true,
+      "chronological_user_targets_excluded": true,
+      "candidate_swap_antisymmetry": true
+    },
+    "input_sha256": {
+      "task_5_train.csv": "36a2f779b9113588eca35178873fe32a36d8cc45398f24d55a486aad722300f9",
+      "task_5_test.csv": "ed5876ea30f01e22784dd1f8aa3b17b157016244403b0d5488f5fb5938921831"
+    }
+  },
+  "preference_stage": {
+    "weights": {
+      "small": 1,
+      "wide": 0
+    },
+    "new_weight": 0.5,
+    "runs": {
+      "small": {
+        "epochs": 8,
+        "inner_accuracy": 0.9210738564350731,
+        "inner_blend_accuracy": 0.9225141145293236,
+        "new_weight": 0.5,
+        "seed": 73,
+        "hidden": [
+          64,
+          32
+        ],
+        "alpha": 0.1
+      },
+      "wide": {
+        "epochs": 8,
+        "inner_accuracy": 0.9211314667588432,
+        "inner_blend_accuracy": 0.9224565042055536,
+        "new_weight": 0.5,
+        "seed": 117,
+        "hidden": [
+          128,
+          64
+        ],
+        "alpha": 1.0
+      }
+    },
+    "inner_accuracy": 0.9225141145293236,
+    "reference_inner_accuracy": 0.9202673119022929,
+    "reference_evaluation_accuracy": 0.9206323600580739,
+    "new_evaluation_accuracy": 0.9231903763279792,
+    "primary_evaluation_accuracy": 0.9235245316064803,
+    "comparison_to_public_reference": 0.9136957573802226,
+    "preference_features": [
+      "bpr128_e50_personal",
+      "bpr128_e50_lastcos",
+      "bpr128_e50_recent3cos",
+      "bpr128_e50_recent20cos",
+      "bpr128_e150_personal",
+      "bpr128_e150_lastcos",
+      "bpr128_e150_recent3cos",
+      "bpr128_e150_recent20cos",
+      "bpr128_e350_personal",
+      "bpr128_e350_lastcos",
+      "bpr128_e350_recent3cos",
+      "bpr128_e350_recent20cos",
+      "bpr96_e50_personal",
+      "bpr96_e50_lastcos",
+      "bpr96_e50_recent3cos",
+      "bpr96_e50_recent20cos",
+      "bpr96_e150_personal",
+      "bpr96_e150_lastcos",
+      "bpr96_e150_recent3cos",
+      "bpr96_e150_recent20cos",
+      "bpr96_e300_personal",
+      "bpr96_e300_lastcos",
+      "bpr96_e300_recent3cos",
+      "bpr96_e300_recent20cos",
+      "fold3_e25_score",
+      "fold3_e25_cos",
+      "fold3_e100_score",
+      "fold3_e100_cos",
+      "fold10_e25_score",
+      "fold10_e25_cos",
+      "fold10_e100_score",
+      "fold10_e100_cos",
+      "fold0_e25_score",
+      "fold0_e25_cos",
+      "fold0_e100_score",
+      "fold0_e100_cos"
+    ],
+    "audit": {
+      "primary": {
+        "rows": 86786,
+        "sha256": "9e2f9d27427853908f15c4f24e378571b4641752e708ba065a8947c98c326465",
+        "ids_order_preserved": true,
+        "saved_model_replay": true
+      },
+      "blend50": {
+        "rows": 86786,
+        "sha256": "acc0c9f2cee08dcfa86ede6633e18bf31d46cd071676a974f007c924a334ff79",
+        "ids_order_preserved": true,
+        "saved_model_replay": true
+      },
+      "larger_refit": {
+        "rows": 86786,
+        "sha256": "25c8497ad4418e93fb59435a4f2f29273b85b8de0371489917f59138a0b84554",
+        "ids_order_preserved": true,
+        "saved_model_replay": true,
+        "independent_local_accuracy": null
+      }
+    },
+    "checks": {
+      "BPR_factor_replay_samples": true,
+      "query_fold_replay_samples": true,
+      "query_fold_gradient": true,
+      "pair_swap_antisymmetry": true,
+      "final_ranker_replay": true
+    }
+  },
+  "larger_refit": {
+    "training_pairs": 173572,
+    "base_epochs": 8,
+    "preference_epochs": {
+      "small": 4
+    },
+    "local_accuracy": null,
+    "protocol": "Both historical held-out target sets become production meta-training examples after validation. Epoch counts are halved to roughly preserve the number of SGD minibatch updates. No independent accuracy is claimed for this refit."
+  },
+  "files": {
+    "primary": {
+      "rows": 86786,
+      "sha256": "9e2f9d27427853908f15c4f24e378571b4641752e708ba065a8947c98c326465"
+    },
+    "conservative": {
+      "rows": 86786,
+      "sha256": "acc0c9f2cee08dcfa86ede6633e18bf31d46cd071676a974f007c924a334ff79"
+    },
+    "sequence_neural": {
+      "rows": 86786,
+      "sha256": "dbead4800013cff8bc0fea956f6066d93ceee047ff83ac7659c60a62de1b8e27"
+    },
+    "larger_refit": {
+      "rows": 86786,
+      "sha256": "25c8497ad4418e93fb59435a4f2f29273b85b8de0371489917f59138a0b84554"
+    }
+  },
+  "source_sha256": {
+    "task5_order_kernel.cpp": "5d39624339dc86fcc9a0ceeb383b6fb0bf256740764691dfcb1d7e67ff0840c6",
+    "task5_order.py": "66d107a3df4612ae158fa0bd89efe2e4e7b6966c19af1de27a80a04a80570a46",
+    "task5_era.py": "3ad181cc8a3a0812a28194cbc692388a05fe90d9d824a6f70e377cd14180e6e9",
+    "task5_attention_kernel.cpp": "d0f414f7dab5a4c76e3896c45d1d8adc9a88371043666bafaf10f4183d7185be",
+    "task5_attention.py": "bb094acbba900cd1a372d967eef80caead92ffacc2830769c60077d83da12a7e",
+    "task5_round3.py": "73712e2ca4fc882c45dec257b7594c6d5726d682497ea9d56f8319c1194bde06",
+    "task5_bpr_round3.py": "e1a1a9a7a46f82bdacaa097a4cde83cacdc760eac82310d32f9684725231fea1",
+    "task5_fold_kernel.cpp": "bd48b4a21164be799a8fcd917f7f99226eb2e685555eaf442643e545a2a32380",
+    "task5_fold.py": "362e813c1efd3e68268ba7f919c5ce026d78968024bfcc313059eb8c104851cc",
+    "task5_preference_round3.py": "fe90997b3f33c7d5302fefa68dc203fc0505832db64d4c68d3448ba5bf30b559",
+    "task5_round3_refit.py": "c51a124bd8a24f571af84af78d5766f92f8ba1db9a46c144eb3051f4be725856",
+    "task5_preference_refit.py": "08dbb05b44e291f80bb0dd78dad33becbfb75b2d943bc7a59e98819743ac3eac",
+    "task5_round3_checks.py": "cc13cde4f5e9200f125c68ebb861323478453ec63a318e69c9a6e5e81dca44ed"
+  },
+  "bpr_configuration": {
+    "validation": {
+      "full": false,
+      "configs": [
+        [
+          "bpr128",
+          128,
+          0.03,
+          0.03,
+          350,
+          42,
+          [
+            50,
+            150,
+            350
+          ]
+        ],
+        [
+          "bpr96",
+          96,
+          0.003,
+          0.05,
+          300,
+          23,
+          [
+            50,
+            150,
+            300
+          ]
+        ]
+      ],
+      "library_version": "0.7.3",
+      "factor_states": "replay sample retained; full models regenerate from deterministic fits"
+    },
+    "full": {
+      "full": true,
+      "configs": [
+        [
+          "bpr128",
+          128,
+          0.03,
+          0.03,
+          350,
+          42,
+          [
+            50,
+            150,
+            350
+          ]
+        ],
+        [
+          "bpr96",
+          96,
+          0.003,
+          0.05,
+          300,
+          23,
+          [
+            50,
+            150,
+            300
+          ]
+        ]
+      ],
+      "library_version": "0.7.3",
+      "factor_states": "replay sample retained; full models regenerate from deterministic fits"
+    }
+  }
+}

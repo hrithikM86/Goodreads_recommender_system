@@ -4,9 +4,14 @@
   "tasks": {
     "1": {
       "metric": "MSE",
-      "score": 0.5368518492394629,
-      "rank": 208,
-      "accepted": "task1_next/primary"
+      "score": 0.5357130495771631,
+      "rank": null,
+      "accepted": "task1_neural/ensemble_blend50",
+      "previous_rank": 208,
+      "other_reported_scores": {
+        "neural_only": 0.5366494853089331,
+        "primary_neural_blend": null
+      }
     },
     "2": {
       "metric": "accuracy",
