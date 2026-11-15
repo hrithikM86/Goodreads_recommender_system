@@ -1,0 +1,48 @@
+{
+  "weights": {
+    "cal3": 0,
+    "cal5": 1
+  },
+  "correction_weight": 1,
+  "inner_MAE": 6843662.406156911,
+  "reference_evaluation_MAE": 7419901.322320926,
+  "new_evaluation_MAE": 7155338.850502782,
+  "runs": {
+    "cal3": {
+      "depth": 3,
+      "iterations": 996
+    },
+    "cal5": {
+      "depth": 5,
+      "iterations": 507
+    }
+  },
+  "expert_names": [
+    "accepted"
+  ],
+  "audit": {
+    "rows": 55403,
+    "sha256": "351f14f5d4435d6f4e2d8d9c3fa7ad1e60270d5c166fade8ec4a3d678e914ed8",
+    "ids_order_preserved": true,
+    "full_model_replay": true
+  },
+  "inputs": {
+    "task_6_train.csv": "9daabd75375f2fcb8f4503bbbedee5111a7cde6cb67c0268ca4544ce0bf8cd7e",
+    "task_6_test.csv": "14cc58faac56d2e823c7efa5754b0d9af5b38c1c6353ba9cb94916d903a5fba8"
+  },
+  "source_sha256": {
+    "task1_next.py": "3906e0c37cd221262f38640f690614eb530766890726d629a46c1a2582867c0f",
+    "task1_next_stack.py": "aadfbe4e4c0c2ffe2f68e3f12e2b975b04d1311b4fdae4ff2d11224118d40c5b",
+    "task1_svdpp_kernel.cpp": "be1e6c71458f0260619431d6599567e4b93bb4947e5660cd69f2dda7dd1afe0c",
+    "task5_next.py": "9d2d5a8a9a2e51f983f0250b9560767e8c7ddc32cbb2c01ae1dde0a01d4c0e3c",
+    "task5_metric_kernel.cpp": "a63cd31d6f43df1e9ebb8ca6dc60d81bf07931fb56b458e3120bb43361a97680",
+    "task5_ease_next.py": "cc9559de7d7a32f119cb18ee31b196aaae81c3f18049b42563fde13c5f4a14a6",
+    "task5_fossil_next.py": "37cc1daeeccbc3796af2848b401443515f6ef9d1049beca9742da2132a9a5363",
+    "task5_fossil_kernel.cpp": "92f6eef0a8a9cca0e179593a4cb21e016f6519684bf0a9f092416d5992fdefe7",
+    "task5_next_stack.py": "616c921f10565e792cb15878cc12b13b8e204853f824b4af52e5c0ac9dba96ba",
+    "task6_next.py": "59248911419561f9a242d9b5cc6c0d3c1206cedbe13fa81d756c3c2d11a62688",
+    "task6_next_models.py": "dc09b2c23ea5f5a1252da7e1585e384315a2ce2d65a01fcd9eb7124c8fbeaf8f",
+    "task6_next_stack.py": "02d341223d848502b62905190c5242211fe38e068b24389e754354c5b85fe48a",
+    "next_checks.py": "f4288ed1e38681c08ef49c4712d8c60fe9988052da45ed9c64ad56ecab84b291"
+  }
+}

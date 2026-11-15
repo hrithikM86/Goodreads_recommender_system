@@ -1,0 +1,29 @@
+{
+  "selected_production_model": "Recent-event residual calibration; independent of these optional regressors",
+  "comparison_status": "Only completed candidates have evaluation scores. Optional categorical and balanced trials were stopped after an interrupted save/retry; no scores are claimed for them.",
+  "completed": {
+    "raw": {
+      "iterations": 1799,
+      "logged_target": false,
+      "selection_MAE": 7292244.618741608,
+      "evaluation_MAE": 7545012.275387572
+    },
+    "log": {
+      "iterations": 254,
+      "logged_target": true,
+      "selection_MAE": 7268316.497929244,
+      "evaluation_MAE": 7516655.676234751
+    },
+    "offset": {
+      "iterations": 637,
+      "logged_target": false,
+      "offset_target": true,
+      "selection_MAE": 7378103.991116452,
+      "evaluation_MAE": 7550534.275749634
+    }
+  },
+  "not_scored": [
+    "catlog",
+    "balanced"
+  ]
+}

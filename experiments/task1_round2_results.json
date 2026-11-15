@@ -1,0 +1,95 @@
+{
+  "features": [
+    "accepted",
+    "svd_aggregate",
+    "cos10_1",
+    "cos20_2",
+    "cos10_2",
+    "svdpp24_e20",
+    "svdpp24_e50",
+    "svdpp24_e100",
+    "svdpp48_e20",
+    "svdpp48_e50",
+    "svdpp48_e100",
+    "joint_r0.25_p10",
+    "joint_r0.25_p50",
+    "joint_r1_p10",
+    "joint_r1_p50",
+    "joint_r4_p10",
+    "joint_r4_p50",
+    "user_count",
+    "user_mean",
+    "user_std",
+    "item_count",
+    "item_mean",
+    "item_std",
+    "svdpp64low_e50",
+    "svdpp64low_e100",
+    "svdpp64low_e180",
+    "svdppstrong96_e30",
+    "svdppstrong96_e70",
+    "svdppstrong96_e140",
+    "itemspp32_e20",
+    "itemspp32_e50",
+    "itemspp32_e100",
+    "item_ridge_r1_p20",
+    "item_ridge_r1_p100",
+    "item_ridge_r4_p20",
+    "item_ridge_r4_p100",
+    "item_pearson1",
+    "item_pearson2",
+    "user_ridge_r1_p20",
+    "user_ridge_r1_p100",
+    "user_ridge_r4_p20",
+    "user_ridge_r4_p100",
+    "user_pearson1",
+    "user_pearson2"
+  ],
+  "runs": {
+    "depth4": {
+      "depth": 4,
+      "iterations": 1983,
+      "inner_MSE": 0.5290050815769695
+    },
+    "depth6": {
+      "depth": 6,
+      "iterations": 1023,
+      "inner_MSE": 0.5288746586045259
+    }
+  },
+  "depth_weights": {
+    "depth4": 0.5,
+    "depth6": 0.5
+  },
+  "new_weight": 0.75,
+  "inner_MSE": 0.5282491644616109,
+  "reference_evaluation_MSE": 0.5384875114467605,
+  "new_evaluation_MSE": 0.5381043738811339,
+  "primary_evaluation_MSE": 0.537658596135082,
+  "reference_public_MSE": 0.5385673542232966,
+  "audit": {
+    "rows": 20000,
+    "sha256": "b5543213243f17fd32ce4cc831e760c17ee5976954e8aebdbe3f4dac7e6ed955",
+    "ids_order_preserved": true,
+    "full_model_replay": true
+  },
+  "inputs": {
+    "tasks_1_2_train.csv": "7d37e3c71f36f453a8470507072f4a6eb3c05de5024679c8e04b4fc9e285ff76",
+    "task_1_test.csv": "c80d5604f1a20fa2b69679db5da3c8058a0f3e6f42254c2c53f23ae428f35e73"
+  },
+  "source_sha256": {
+    "task1_next.py": "3906e0c37cd221262f38640f690614eb530766890726d629a46c1a2582867c0f",
+    "task1_next_stack.py": "aadfbe4e4c0c2ffe2f68e3f12e2b975b04d1311b4fdae4ff2d11224118d40c5b",
+    "task1_svdpp_kernel.cpp": "be1e6c71458f0260619431d6599567e4b93bb4947e5660cd69f2dda7dd1afe0c",
+    "task5_next.py": "9d2d5a8a9a2e51f983f0250b9560767e8c7ddc32cbb2c01ae1dde0a01d4c0e3c",
+    "task5_metric_kernel.cpp": "a63cd31d6f43df1e9ebb8ca6dc60d81bf07931fb56b458e3120bb43361a97680",
+    "task5_ease_next.py": "cc9559de7d7a32f119cb18ee31b196aaae81c3f18049b42563fde13c5f4a14a6",
+    "task5_fossil_next.py": "37cc1daeeccbc3796af2848b401443515f6ef9d1049beca9742da2132a9a5363",
+    "task5_fossil_kernel.cpp": "92f6eef0a8a9cca0e179593a4cb21e016f6519684bf0a9f092416d5992fdefe7",
+    "task5_next_stack.py": "616c921f10565e792cb15878cc12b13b8e204853f824b4af52e5c0ac9dba96ba",
+    "task6_next.py": "59248911419561f9a242d9b5cc6c0d3c1206cedbe13fa81d756c3c2d11a62688",
+    "task6_next_models.py": "dc09b2c23ea5f5a1252da7e1585e384315a2ce2d65a01fcd9eb7124c8fbeaf8f",
+    "task6_next_stack.py": "02d341223d848502b62905190c5242211fe38e068b24389e754354c5b85fe48a",
+    "next_checks.py": "f4288ed1e38681c08ef49c4712d8c60fe9988052da45ed9c64ad56ecab84b291"
+  }
+}

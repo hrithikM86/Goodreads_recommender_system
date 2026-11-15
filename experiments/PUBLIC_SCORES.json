@@ -1,0 +1,39 @@
+{
+  "source": "User-reported Gradescope public half of test set",
+  "reported_date": "2026-11-15",
+  "tasks": {
+    "1": {
+      "metric": "MSE",
+      "score": 0.5385673542232966,
+      "rank": 223,
+      "accepted": "task1_improved/new"
+    },
+    "2": {
+      "metric": "accuracy",
+      "score": 0.9505,
+      "rank": 79
+    },
+    "3": {
+      "metric": "MSE",
+      "score": 0.6825445785868727,
+      "rank": 101
+    },
+    "4": {
+      "metric": "accuracy",
+      "score": 0.9466,
+      "rank": 83
+    },
+    "5": {
+      "metric": "accuracy",
+      "score": 0.9107920632360058,
+      "rank": 282,
+      "accepted": "task5_improved/primary"
+    },
+    "6": {
+      "metric": "MAE_seconds",
+      "score": 8890395.0326342,
+      "rank": 366,
+      "accepted": "task6_improved/blend"
+    }
+  }
+}
