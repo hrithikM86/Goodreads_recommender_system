@@ -1,0 +1,117 @@
+{
+  "xgboost": {
+    "kind": "xgboost",
+    "package_version": "3.4.1",
+    "selected": {
+      "params": {
+        "max_depth": 4,
+        "min_child_weight": 20
+      },
+      "iterations": 1553,
+      "inner_accuracy": 0.9416497586231022
+    },
+    "search": [
+      {
+        "params": {
+          "max_depth": 4,
+          "min_child_weight": 20
+        },
+        "iterations": 1553,
+        "inner_accuracy": 0.9416497586231022,
+        "logloss_stopping_iteration": 1553
+      }
+    ],
+    "search_status": "Completed configurations only; unfinished exploratory fits excluded",
+    "evaluation_accuracy": 0.9391713194240376,
+    "accepted_catboost_evaluation": 0.9388494745532653,
+    "feature_bank": "same fresh BPR/ALS/time-period/neighborhood/drift/FM features as accepted .9478 solution",
+    "component_refit": false,
+    "protocol": "seed17 inner split before mirroring; selection rows only for final combiner; evaluation excluded from tuning",
+    "input_hashes": {
+      "fresh_validation/scores.npz": "4fb6d1958e72ab5a2715a1cd81cdd9a3e10c26087c7c98d825c039640abd3d42",
+      "fresh_full/scores.npz": "b58140ecad931d5284ee2708d6eeccff2fa2aad876225126fcc0dc3ff53d8829",
+      "fm_validation.npz": "e00e916fc9ad3d4f067cf317db822363401602f847d512ebc4f7eca165b8a81d",
+      "fm_full.npz": "65f30d426ad066cbb1c9800bc15e66c950851b631ae85988af65e1e620a1e943"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "0640d915c9c8004de4163cf671428c2d9f3e8b4ef14f13b7dad72e6287e7a58e",
+      "changed_vs_accepted": 223,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "lightgbm": {
+    "kind": "lightgbm",
+    "package_version": "4.7.0",
+    "selected": {
+      "params": {
+        "num_leaves": 15,
+        "min_child_samples": 100
+      },
+      "iterations": 1100,
+      "inner_accuracy": 0.9415098299867067
+    },
+    "search": [
+      {
+        "params": {
+          "num_leaves": 15,
+          "min_child_samples": 100
+        },
+        "iterations": 1100,
+        "inner_accuracy": 0.9415098299867067,
+        "logloss_stopping_iteration": 1600
+      },
+      {
+        "params": {
+          "num_leaves": 31,
+          "min_child_samples": 150
+        },
+        "iterations": 1200,
+        "inner_accuracy": 0.9415098299867067,
+        "logloss_stopping_iteration": 1208
+      }
+    ],
+    "search_status": "Completed configurations only; unfinished exploratory fits excluded",
+    "evaluation_accuracy": 0.9386675622350027,
+    "accepted_catboost_evaluation": 0.9388494745532653,
+    "feature_bank": "same fresh BPR/ALS/time-period/neighborhood/drift/FM features as accepted .9478 solution",
+    "component_refit": false,
+    "protocol": "seed17 inner split before mirroring; selection rows only for final combiner; evaluation excluded from tuning",
+    "input_hashes": {
+      "fresh_validation/scores.npz": "4fb6d1958e72ab5a2715a1cd81cdd9a3e10c26087c7c98d825c039640abd3d42",
+      "fresh_full/scores.npz": "b58140ecad931d5284ee2708d6eeccff2fa2aad876225126fcc0dc3ff53d8829",
+      "fm_validation.npz": "e00e916fc9ad3d4f067cf317db822363401602f847d512ebc4f7eca165b8a81d",
+      "fm_full.npz": "65f30d426ad066cbb1c9800bc15e66c950851b631ae85988af65e1e620a1e943"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "31ba570f5bb5005317f86e2a7ff9d69e67b7e0d0fc06f9772517ef6203830340",
+      "changed_vs_accepted": 228,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "audit": {
+    "xgboost": {
+      "rows": 20000,
+      "saved_model_replay": true,
+      "sha256": "0640d915c9c8004de4163cf671428c2d9f3e8b4ef14f13b7dad72e6287e7a58e",
+      "local_accuracy": 0.9391713194240376
+    },
+    "lightgbm": {
+      "rows": 20000,
+      "saved_model_replay": true,
+      "sha256": "31ba570f5bb5005317f86e2a7ff9d69e67b7e0d0fc06f9772517ef6203830340",
+      "local_accuracy": 0.9386675622350027
+    }
+  },
+  "accepted_public_accuracy": 0.9478,
+  "new_public_scores": null,
+  "source_hashes": {
+    "task4_tree_combiners.py": "0a698b13a2298f6e97b93d3a59361017ac8453c96f9439f5b2999b628e4d691a",
+    "task4_tree_checks.py": "751e68af292375fedd50f9d54a8359e7cdcb011cae4a70da844d75f091a2da1b"
+  },
+  "completed_trial_logs": {
+    "xgboost": "INNER xgboost {'params': {'max_depth': 4, 'min_child_weight': 20}, 'iterations': 1553, 'inner_accuracy': 0.9416497586231022, 'logloss_stopping_iteration': 1553}\n",
+    "lightgbm": "/workspace/work/task3_lgb/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.\n  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)\nINNER lightgbm {'params': {'num_leaves': 15, 'min_child_samples': 100}, 'iterations': 1100, 'inner_accuracy': 0.9415098299867067, 'logloss_stopping_iteration': 1600}\n/workspace/work/task3_lgb/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.\n  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)\nINNER lightgbm {'params': {'num_leaves': 31, 'min_child_samples': 150}, 'iterations': 1200, 'inner_accuracy': 0.9415098299867067, 'logloss_stopping_iteration': 1208}\n/workspace/work/task3_lgb/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.\n  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)\n"
+  }
+}
