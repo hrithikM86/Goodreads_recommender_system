@@ -5,7 +5,7 @@
     "1": {
       "metric": "MSE",
       "score": 0.5357130495771631,
-      "rank": null,
+      "rank": 205,
       "accepted": "task1_neural/ensemble_blend50",
       "previous_rank": 208,
       "other_reported_scores": {
@@ -16,29 +16,45 @@
     "2": {
       "metric": "accuracy",
       "score": 0.9505,
-      "rank": 79
+      "rank": 79,
+      "rejected_round4_readers": {
+        "score": 0.9372,
+        "rank": 390,
+        "local_evaluation": 0.9784815702115316
+      }
     },
     "3": {
       "metric": "MSE",
       "score": 0.6825445785868727,
-      "rank": 102
+      "rank": 104
     },
     "4": {
       "metric": "accuracy",
-      "score": 0.9466,
-      "rank": 86
+      "score": 0.9468,
+      "rank": 86,
+      "accepted": "task4_time_bpr",
+      "other_reported_scores": {
+        "temporal_readers_round4": 0.9462
+      }
     },
     "5": {
       "metric": "accuracy",
-      "score": 0.9136957573802226,
-      "rank": 249,
-      "accepted": "task5_next/primary"
+      "score": 0.9219689811720785,
+      "rank": 116,
+      "accepted": "task5_round3/preference/primary"
     },
     "6": {
       "metric": "MAE_seconds",
       "score": 8452714.299367478,
-      "rank": 104,
+      "rank": 108,
       "accepted": "task6_next/stack_primary"
     }
+  },
+  "top10_targets": {
+    "2": 0.9545,
+    "3": 0.6617987798522978,
+    "4": 0.9517,
+    "5": 0.9295278040236905,
+    "6": 8135110.306547094
   }
 }
