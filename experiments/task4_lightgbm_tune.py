@@ -1,0 +1,29 @@
+"""Tune only LightGBM over frozen accepted Task4 features + Item2vec.
+Original inner-selection split chooses all settings; evaluation never selects models.
+"""
+import os
+os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='2'
+import json,hashlib,gc
+from pathlib import Path
+import numpy as np,pandas as pd
+from task4_item2vec_combiners import augmented
+from task4_tree_combiners import W,DATA,lgb,predict,NSEL
+OUT=W/'task4_lightgbm_tuned';OUT.mkdir(exist_ok=True)
+def accuracy(p):return float(np.mean((p>0)+.5*(p==0)))
+def settings(c,count):
+ return dict(n_estimators=count,objective='binary',learning_rate=c['learning_rate'],num_leaves=c['num_leaves'],min_child_samples=c['min_child_samples'],reg_lambda=c['reg_lambda'],reg_alpha=c['reg_alpha'],subsample=c['subsample'],subsample_freq=1,colsample_bytree=c['colsample_bytree'],random_state=619,n_jobs=2,verbosity=-1)
+def main():
+ paths=[W/'task4_two_approaches/fresh_validation/scores.npz',W/'task4_two_approaches/fresh_full/scores.npz',W/'task4_two_approaches/fm_validation.npz',W/'task4_two_approaches/fm_full.npz',W/'task4_item2vec/validation_features.npz',W/'task4_item2vec/full_features.npz'];manifest={str(p.relative_to(W)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths};guard=OUT/'input_manifest.json'
+ if guard.exists():assert json.loads(guard.read_text())==manifest,'Accepted input bank changed; choose a fresh output directory'
+ guard.write_text(json.dumps(manifest,indent=2));d,s,names=augmented();assert d.shape[1]==142;idx=np.random.RandomState(17).permutation(NSEL);cut=int(.8*NSEL);tr,va=idx[:cut],idx[cut:];X=np.r_[np.c_[d[tr],s[tr]],np.c_[-d[tr],s[tr]]];y=np.r_[np.ones(len(tr)),np.zeros(len(tr))];V=(np.r_[np.c_[d[va],s[va]],np.c_[-d[va],s[va]]],np.r_[np.ones(len(va)),np.zeros(len(va))]);configs=[dict(name='accepted',num_leaves=15,min_child_samples=100,reg_lambda=20.,reg_alpha=0.,learning_rate=.035,subsample=.9,colsample_bytree=.9,max_trees=1100),dict(name='regularized15',num_leaves=15,min_child_samples=200,reg_lambda=50.,reg_alpha=.1,learning_rate=.035,subsample=.85,colsample_bytree=.8,max_trees=1600),dict(name='regularized31',num_leaves=31,min_child_samples=250,reg_lambda=50.,reg_alpha=.1,learning_rate=.025,subsample=.9,colsample_bytree=.8,max_trees=1600)];reports=[];best=(-1,None,None)
+ for j,c in enumerate(configs):
+  info=OUT/(c['name']+'_inner.json');modelpath=OUT/(c['name']+'_inner.txt')
+  if info.exists():r=json.loads(info.read_text());assert r['settings']==c
+  else:
+   print('TRAIN_INNER',c,flush=True);m=lgb.LGBMClassifier(**settings(c,c['max_trees']));m.fit(X,y,**({} if j==0 else {'eval_set':[V],'callbacks':[lgb.early_stopping(100,verbose=False)]}));limit=c['max_trees'] if j==0 else m.best_iteration_;counts=[1100] if j==0 else sorted(set([limit]+list(range(200,limit+1,200))+([1100] if limit>=1100 else [])));options=[]
+   for count in counts:options.append((accuracy(predict(m,'lightgbm',d[va],s[va],count)),count))
+   score,count=max(options,key=lambda p:(p[0],-p[1]));m.booster_.save_model(str(modelpath),num_iteration=count);p=predict(m,'lightgbm',d[va],s[va],count);np.savez_compressed(OUT/(c['name']+'_inner.npz'),margin=p);r={'settings':c,'inner_accuracy':score,'selected_trees':count,'logloss_stopping_trees':limit,'checkpoint_search':[{'trees':n,'accuracy':v} for v,n in options]};info.write_text(json.dumps(r,indent=2));del m;gc.collect()
+  reports.append(r);print('INNER_RESULT',r,flush=True)
+  if r['inner_accuracy']>best[0]:best=(r['inner_accuracy'],c,r['selected_trees'])
+ score,c,count=best;print('SELECTED',c,count,score,flush=True);X=np.r_[np.c_[d[:NSEL],s[:NSEL]],np.c_[-d[:NSEL],s[:NSEL]]];y=np.r_[np.ones(NSEL),np.zeros(NSEL)];model=lgb.LGBMClassifier(**settings(c,count));model.fit(X,y);ev=predict(model,'lightgbm',d[NSEL:],s[NSEL:]);reference=np.load(W/'task4_item2vec/lightgbm_evaluation.npz')['margin'];summary={'selected':{'settings':c,'trees':count,'inner_accuracy':score},'search':reports,'evaluation_accuracy':accuracy(ev),'accepted_evaluation_accuracy':accuracy(reference),'feature_count':142,'Item2vec_included':True,'FISM_included':False,'FPMC_included':False,'protocol':'Frozen accepted component bank. Seed17 inner80/20 split BEFORE pair mirroring chooses all hyperparameters/tree counts. Refit selected model only on71462 selection pairs.71463 evaluation pairs never tune. Cohorts reused in earlier experiments; local scores not unbiased hidden-test estimates.','source_bank_hashes':manifest};(OUT/'results.json').write_text(json.dumps(summary,indent=2));np.savez_compressed(OUT/'evaluation_margins.npz',margin=ev);model.booster_.save_model(str(OUT/'lightgbm.txt'));print('EVALUATION',summary['evaluation_accuracy'],'reference',summary['accepted_evaluation_accuracy'],flush=True);fd,fs,fn=augmented(True);assert fn==names and fd.shape[1]==142;p=predict(model,'lightgbm',fd,fs);assert np.isfinite(p).all() and np.allclose(p,-predict(model,'lightgbm',-fd,fs));q=pd.read_csv(DATA/'task_4_test.csv');f=q.copy();f['which']=np.where(p>=0,f.item1,f.item2);dest=Path('/workspace/output/task4_lightgbm_tuned');dest.mkdir(exist_ok=True);path=dest/'task_4_predictions.csv';f.to_csv(path,index=False);read=pd.read_csv(path);assert len(read)==20000 and read.drop(columns='which').equals(q.drop(columns='which',errors='ignore'));assert ((read.which==read.item1)|(read.which==read.item2)).all();np.savez_compressed(OUT/'test_margins.npz',margin=p);old=pd.read_csv('/workspace/output/task4_item2vec_lightgbm/task_4_predictions.csv');summary['output_audit']={'rows':len(read),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'changed_vs_accepted':int((read.which!=old.which).sum()),'pair_swap_antisymmetry':True};(OUT/'results.json').write_text(json.dumps(summary,indent=2));print('EXPORTED',summary['output_audit'],flush=True)
+if __name__=='__main__':main()

@@ -41,7 +41,8 @@
         "three_tree_blend": 0.948,
         "item2vec_xgboost": 0.9481,
         "lightgbm_without_item2vec": 0.9485,
-        "fism_lightgbm": 0.9477
+        "fism_lightgbm": 0.9477,
+        "fpmc_lightgbm": 0.9479
       }
     },
     "5": {

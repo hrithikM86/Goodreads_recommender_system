@@ -1,0 +1,190 @@
+{
+  "results": {
+    "selected": {
+      "settings": {
+        "name": "regularized31",
+        "num_leaves": 31,
+        "min_child_samples": 250,
+        "reg_lambda": 50.0,
+        "reg_alpha": 0.1,
+        "learning_rate": 0.025,
+        "subsample": 0.9,
+        "colsample_bytree": 0.8,
+        "max_trees": 1600
+      },
+      "trees": 1200,
+      "inner_accuracy": 0.941229972713916
+    },
+    "search": [
+      {
+        "settings": {
+          "name": "accepted",
+          "num_leaves": 15,
+          "min_child_samples": 100,
+          "reg_lambda": 20.0,
+          "reg_alpha": 0.0,
+          "learning_rate": 0.035,
+          "subsample": 0.9,
+          "colsample_bytree": 0.9,
+          "max_trees": 1100
+        },
+        "inner_accuracy": 0.9408101868047296,
+        "selected_trees": 1100,
+        "logloss_stopping_trees": 1100,
+        "checkpoint_search": [
+          {
+            "trees": 1100,
+            "accuracy": 0.9408101868047296
+          }
+        ]
+      },
+      {
+        "settings": {
+          "name": "regularized15",
+          "num_leaves": 15,
+          "min_child_samples": 200,
+          "reg_lambda": 50.0,
+          "reg_alpha": 0.1,
+          "learning_rate": 0.035,
+          "subsample": 0.85,
+          "colsample_bytree": 0.8,
+          "max_trees": 1600
+        },
+        "inner_accuracy": 0.9411600083957182,
+        "selected_trees": 1200,
+        "logloss_stopping_trees": 1588,
+        "checkpoint_search": [
+          {
+            "trees": 200,
+            "accuracy": 0.9378017211222277
+          },
+          {
+            "trees": 400,
+            "accuracy": 0.9399006506681592
+          },
+          {
+            "trees": 600,
+            "accuracy": 0.9403904008955433
+          },
+          {
+            "trees": 800,
+            "accuracy": 0.9410900440775205
+          },
+          {
+            "trees": 1000,
+            "accuracy": 0.9408101868047296
+          },
+          {
+            "trees": 1100,
+            "accuracy": 0.9407402224865319
+          },
+          {
+            "trees": 1200,
+            "accuracy": 0.9411600083957182
+          },
+          {
+            "trees": 1400,
+            "accuracy": 0.9409501154411251
+          },
+          {
+            "trees": 1588,
+            "accuracy": 0.9410200797593228
+          }
+        ]
+      },
+      {
+        "settings": {
+          "name": "regularized31",
+          "num_leaves": 31,
+          "min_child_samples": 250,
+          "reg_lambda": 50.0,
+          "reg_alpha": 0.1,
+          "learning_rate": 0.025,
+          "subsample": 0.9,
+          "colsample_bytree": 0.8,
+          "max_trees": 1600
+        },
+        "inner_accuracy": 0.941229972713916,
+        "selected_trees": 1200,
+        "logloss_stopping_trees": 1595,
+        "checkpoint_search": [
+          {
+            "trees": 200,
+            "accuracy": 0.9378716854404254
+          },
+          {
+            "trees": 400,
+            "accuracy": 0.9393409361225775
+          },
+          {
+            "trees": 600,
+            "accuracy": 0.939690757713566
+          },
+          {
+            "trees": 800,
+            "accuracy": 0.9403204365773455
+          },
+          {
+            "trees": 1000,
+            "accuracy": 0.9409501154411251
+          },
+          {
+            "trees": 1100,
+            "accuracy": 0.9408801511229273
+          },
+          {
+            "trees": 1200,
+            "accuracy": 0.941229972713916
+          },
+          {
+            "trees": 1400,
+            "accuracy": 0.940460365213741
+          },
+          {
+            "trees": 1595,
+            "accuracy": 0.9409501154411251
+          }
+        ]
+      }
+    ],
+    "evaluation_accuracy": 0.9395771238263158,
+    "accepted_evaluation_accuracy": 0.9392132991897906,
+    "feature_count": 142,
+    "Item2vec_included": true,
+    "FISM_included": false,
+    "FPMC_included": false,
+    "protocol": "Frozen accepted component bank. Seed17 inner80/20 split BEFORE pair mirroring chooses all hyperparameters/tree counts. Refit selected model only on71462 selection pairs.71463 evaluation pairs never tune. Cohorts reused in earlier experiments; local scores not unbiased hidden-test estimates.",
+    "source_bank_hashes": {
+      "task4_two_approaches/fresh_validation/scores.npz": "4fb6d1958e72ab5a2715a1cd81cdd9a3e10c26087c7c98d825c039640abd3d42",
+      "task4_two_approaches/fresh_full/scores.npz": "b58140ecad931d5284ee2708d6eeccff2fa2aad876225126fcc0dc3ff53d8829",
+      "task4_two_approaches/fm_validation.npz": "e00e916fc9ad3d4f067cf317db822363401602f847d512ebc4f7eca165b8a81d",
+      "task4_two_approaches/fm_full.npz": "65f30d426ad066cbb1c9800bc15e66c950851b631ae85988af65e1e620a1e943",
+      "task4_item2vec/validation_features.npz": "8a037a2eca7e19e5292e6943178416ab2f6e06acdf4a2c760713d0b9f6478448",
+      "task4_item2vec/full_features.npz": "c420b6bf7cbad130700016b481e1d6ed216ba2d73cdd432c859c3b9eae174e52"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "a312b2f53adb01b950d737b640694507d0caad1d35ccfe1d788690844128a579",
+      "changed_vs_accepted": 131,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "audit": {
+    "bank_hashes_match_accepted": true,
+    "raw_input_CSV_hashes_match_accepted": true,
+    "component_scores": 142,
+    "selected_inner_model_replay": true,
+    "selection_split_before_pair_mirroring": true,
+    "evaluation_model_replay": true,
+    "test_model_replay": true,
+    "original_accepted_CSV_untouched": true,
+    "all_rows_checked": 20000,
+    "sha256": "a312b2f53adb01b950d737b640694507d0caad1d35ccfe1d788690844128a579"
+  },
+  "accepted_public_accuracy": 0.9486,
+  "new_public_accuracy": null,
+  "source_hashes": {
+    "task4_lightgbm_tune.py": "ad3eba9870ac19cb499cc813526d93c9d69e7a1f04389332719ec5d074f353c8",
+    "task4_lightgbm_tune_checks.py": "b61ffae926d07c2e40fee3131a88d0a2e9cb0cc408a56a7858f72692b6c057ec"
+  }
+}
