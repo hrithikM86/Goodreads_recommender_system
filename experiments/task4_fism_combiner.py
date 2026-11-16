@@ -1,0 +1,15 @@
+"""Fresh LightGBM over accepted Item2vec bank plus time-weighted FISM scores."""
+import os
+os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='2'
+import json,hashlib
+from pathlib import Path
+import numpy as np,pandas as pd
+from task4_item2vec_combiners import augmented as previous
+from task4_tree_combiners import W,DATA,fit,predict,NSEL
+from task4_fism import OUT
+
+def augmented(full=False):
+ d,s,oldnames=previous(full);z=np.load(OUT/('full_features.npz' if full else 'validation_features.npz'));f=np.column_stack([z[k] for k in z.files]);n=len(f)//2;assert len(d)==n;d=np.c_[d,f[:n]-f[n:]].astype('f');s=np.c_[s,f[:n]+f[n:]].astype('f');assert np.isfinite(d).all() and np.isfinite(s).all();return d,s,list(z.files)
+def main():
+ oldr=json.loads((W/'task4_item2vec/lightgbm_results.json').read_text());cfg=oldr['hyperparameters_reused'];d,s,names=augmented();X=np.r_[np.c_[d[:NSEL],s[:NSEL]],np.c_[-d[:NSEL],s[:NSEL]]];y=np.r_[np.ones(NSEL),np.zeros(NSEL)];print('TRAIN LightGBM',cfg['params'],cfg['iterations'],'dimensions',X.shape,flush=True);m=fit('lightgbm',cfg['params'],cfg['iterations'],X,y);ev=predict(m,'lightgbm',d[NSEL:],s[NSEL:]);reference=np.load(W/'task4_item2vec/lightgbm_evaluation.npz')['margin'];acc=lambda x:float(np.mean((x>0)+.5*(x==0)));r={'evaluation_accuracy':acc(ev),'accepted_item2vec_lightgbm_evaluation':acc(reference),'hyperparameters':{k:cfg[k] for k in ['params','iterations']},'new_features':names,'total_component_scores':d.shape[1],'protocol':'Existing component bank INCLUDING Item2vec reused; add fitting-only FISM scores, refit LightGBM on71462 selection pairs. Same prior LightGBM hyperparameters. No new tuning on evaluation labels; cohorts have been reused in earlier experiments. No test labels used.','feature_hashes':{name:hashlib.sha256((OUT/name).read_bytes()).hexdigest() for name in ['validation_features.npz','full_features.npz']}};print('EVALUATION',r,flush=True);m.booster_.save_model(str(OUT/'lightgbm.txt'));np.savez_compressed(OUT/'evaluation_margins.npz',margin=ev);fd,fs,fn=augmented(True);assert fn==names;p=predict(m,'lightgbm',fd,fs);assert np.allclose(p,-predict(m,'lightgbm',-fd,fs));q=pd.read_csv(DATA/'task_4_test.csv');assert len(p)==len(q) and np.isfinite(p).all();f=q.copy();f['which']=np.where(p>=0,f.item1,f.item2);dest=Path('/workspace/output/task4_fism_lightgbm');dest.mkdir(exist_ok=True);path=dest/'task_4_predictions.csv';f.to_csv(path,index=False);read=pd.read_csv(path);assert len(read)==20000 and read.drop(columns='which').equals(q.drop(columns='which',errors='ignore'));assert ((read.which==read.item1)|(read.which==read.item2)).all();np.savez_compressed(OUT/'test_margins.npz',margin=p);old=pd.read_csv('/workspace/output/task4_item2vec_lightgbm/task_4_predictions.csv');r['output_audit']={'rows':len(read),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'changed_vs_accepted_item2vec_lightgbm':int((read.which!=old.which).sum()),'pair_swap_antisymmetry':True};(OUT/'results.json').write_text(json.dumps(r,indent=2));print('EXPORTED',r['output_audit'],flush=True)
+if __name__=='__main__':main()

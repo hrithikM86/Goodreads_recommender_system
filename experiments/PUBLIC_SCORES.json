@@ -30,15 +30,17 @@
     },
     "4": {
       "metric": "accuracy",
-      "score": 0.9485,
-      "rank": null,
-      "accepted": "task4_lightgbm",
+      "score": 0.9486,
+      "rank": 57,
+      "accepted": "task4_item2vec_lightgbm",
       "other_reported_scores": {
         "temporal_readers_round4": 0.9462,
         "accepted_plus_fm": 0.9467,
         "xgboost": 0.9482,
         "catboost_all_refit": 0.9478,
-        "three_tree_blend": 0.948
+        "three_tree_blend": 0.948,
+        "item2vec_xgboost": 0.9481,
+        "lightgbm_without_item2vec": 0.9485
       }
     },
     "5": {

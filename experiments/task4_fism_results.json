@@ -1,0 +1,135 @@
+{
+  "results": {
+    "evaluation_accuracy": 0.9388774610637672,
+    "accepted_item2vec_lightgbm_evaluation": 0.9392132991897906,
+    "hyperparameters": {
+      "params": {
+        "num_leaves": 15,
+        "min_child_samples": 100
+      },
+      "iterations": 1100
+    },
+    "new_features": [
+      "fism_e5_time180_score",
+      "fism_e5_uniform_local_score",
+      "fism_e5_time180_cosine",
+      "fism_e5_past_score",
+      "fism_e15_time180_score",
+      "fism_e15_uniform_local_score",
+      "fism_e15_time180_cosine",
+      "fism_e15_past_score",
+      "fism_e30_time180_score",
+      "fism_e30_uniform_local_score",
+      "fism_e30_time180_cosine",
+      "fism_e30_past_score"
+    ],
+    "total_component_scores": 154,
+    "protocol": "Existing component bank INCLUDING Item2vec reused; add fitting-only FISM scores, refit LightGBM on71462 selection pairs. Same prior LightGBM hyperparameters. No new tuning on evaluation labels; cohorts have been reused in earlier experiments. No test labels used.",
+    "feature_hashes": {
+      "validation_features.npz": "d3c3a94f6cf0a39878405b189f9aab7347e75c40f85cfc46dbe5957ef631331d",
+      "full_features.npz": "91e3d3dadaee0db4bca359b73871698b448e595d925f5d1b9a6c363af40d1b55"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "0f54f17ec3e0299dd4da9e8fdaf10e3d5accca59804750b0b482f91a433c17ed",
+      "changed_vs_accepted_item2vec_lightgbm": 121,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "validation": {
+    "stage": "validation",
+    "training_rows_with_valid_times": 1286276,
+    "factors": 32,
+    "context_cap": 32,
+    "normalization_power": 0.5,
+    "time_bandwidth_days": 180,
+    "epochs": [
+      5,
+      15,
+      30
+    ],
+    "loss": "BPR pairwise logistic; same target-excluded context for positive/negative",
+    "negative_sampling": "half uniform global book, half training-event popularity; reject all known books of reader, max100 attempts",
+    "learning_rate": 0.025,
+    "decay_per_epoch": 0.98,
+    "L2": 0.01,
+    "seed": 937,
+    "features": [
+      "fism_e5_time180_score",
+      "fism_e5_uniform_local_score",
+      "fism_e5_time180_cosine",
+      "fism_e5_past_score",
+      "fism_e15_time180_score",
+      "fism_e15_uniform_local_score",
+      "fism_e15_time180_cosine",
+      "fism_e15_past_score",
+      "fism_e30_time180_score",
+      "fism_e30_uniform_local_score",
+      "fism_e30_time180_cosine",
+      "fism_e30_past_score"
+    ],
+    "queries": 285850,
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    },
+    "zero_rating_interactions_retained": true,
+    "ratings_used": false
+  },
+  "full": {
+    "stage": "full",
+    "training_rows_with_valid_times": 1429194,
+    "factors": 32,
+    "context_cap": 32,
+    "normalization_power": 0.5,
+    "time_bandwidth_days": 180,
+    "epochs": [
+      5,
+      15,
+      30
+    ],
+    "loss": "BPR pairwise logistic; same target-excluded context for positive/negative",
+    "negative_sampling": "half uniform global book, half training-event popularity; reject all known books of reader, max100 attempts",
+    "learning_rate": 0.025,
+    "decay_per_epoch": 0.98,
+    "L2": 0.01,
+    "seed": 937,
+    "features": [
+      "fism_e5_time180_score",
+      "fism_e5_uniform_local_score",
+      "fism_e5_time180_cosine",
+      "fism_e5_past_score",
+      "fism_e15_time180_score",
+      "fism_e15_uniform_local_score",
+      "fism_e15_time180_cosine",
+      "fism_e15_past_score",
+      "fism_e30_time180_score",
+      "fism_e30_uniform_local_score",
+      "fism_e30_time180_cosine",
+      "fism_e30_past_score"
+    ],
+    "queries": 40000,
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    },
+    "zero_rating_interactions_retained": true,
+    "ratings_used": false
+  },
+  "audit": {
+    "factor_real_query_replay": 64,
+    "serialized_LightGBM_replay": true,
+    "rows": 20000,
+    "heldout_exclusion": true,
+    "query_alignment": true,
+    "numerical_gradient_and_dense_formula": true
+  },
+  "accepted_public_accuracy": 0.9486,
+  "new_public_accuracy": null,
+  "source_hashes": {
+    "task4_fism.cpp": "9c6f97f6d9c6a30603370e9b94602591198a8c492830e7383dc93b1c25089f4a",
+    "task4_fism.py": "dce01b409fa7bc93908e77a3c9811883d9969e34b1d27cabddda3bca148a46b8",
+    "task4_fism_combiner.py": "234683a7e2bd5a333e59e42eadb14da5be59355b528b0f816ad36b26b1b32969",
+    "task4_fism_checks.py": "c28e2b7f73aacc1bb47f43285d767991ff672e3e0aa39045227872a4213e5608"
+  }
+}
