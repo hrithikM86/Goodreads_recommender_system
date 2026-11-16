@@ -1,0 +1,201 @@
+{
+  "baseline_public_accuracy": 0.9221302975134238,
+  "baseline_holdout_by_seed": {
+    "43": 0.9238967622998041,
+    "441": 0.9262587855743749,
+    "997": 0.9270077197833851
+  },
+  "GRU_augmented_holdout_by_seed": {
+    "43": 0.9238391519760341,
+    "441": 0.9268924991358451,
+    "997": 0.9262587855743749
+  },
+  "mean_paired_holdout_change": -5.761032377001956e-05,
+  "approx_reader_clustered95pct_delta_interval": [
+    -0.0008225415604478089,
+    0.0007073209129077699
+  ],
+  "heldout_readers": 17358,
+  "final_label_reader_overlap": 0,
+  "new_features": [
+    "gru_dot",
+    "gru_bias",
+    "gru_joint"
+  ],
+  "production_pairs": 173572,
+  "settings": "Accepted two64/32 MLPs, alpha.1, seeds71/73,epochs16/8,equal average; append3 scores from one24-dimensional GRU model",
+  "validation_limit": "Historical diagnostic reader split reused; three draws share positives/readers. No hidden labels. Production fits all known historical meta-targets; no unbiased score for final full-data weights.",
+  "output": "/workspace/output/task5_gru_neural/task_5_predictions.csv",
+  "rows": 86786,
+  "changed_vs_accepted": 657,
+  "sha256": "db44c82f4ff8f7f5825b67c7173569040004f91e7f6f6b66b3ced832b8c2e616",
+  "input_sha256": {
+    "task_5_train.csv": "36a2f779b9113588eca35178873fe32a36d8cc45398f24d55a486aad722300f9",
+    "task_5_test.csv": "ed5876ea30f01e22784dd1f8aa3b17b157016244403b0d5488f5fb5938921831"
+  },
+  "standalone": {
+    "selection": {
+      "joint_accuracy": 0.785184246307008,
+      "pairs": 86786
+    },
+    "evaluation": {
+      "joint_accuracy": 0.795170496009341,
+      "pairs": 260358,
+      "by_seed": {
+        "43": 0.794091212868435,
+        "441": 0.7974903786324983,
+        "997": 0.7939298965270897
+      }
+    }
+  },
+  "gradient_checks": {
+    "gradient_checks": [
+      {
+        "parameter": "input_embeddings",
+        "entries_checked": 24,
+        "max_absolute_error": 1.2627581753577033e-06,
+        "max_relative_error_floor_1e4": 0.002127423723284301
+      },
+      {
+        "parameter": "output_embeddings",
+        "entries_checked": 24,
+        "max_absolute_error": 6.900550235666714e-07,
+        "max_relative_error_floor_1e4": 0.00037702337828539274
+      },
+      {
+        "parameter": "item_bias",
+        "entries_checked": 8,
+        "max_absolute_error": 6.762950688354863e-07,
+        "max_relative_error_floor_1e4": 5.038715383274154e-06
+      },
+      {
+        "parameter": "GRU_matrices",
+        "entries_checked": 40,
+        "max_absolute_error": 1.7404211314353546e-06,
+        "max_relative_error_floor_1e4": 0.017404211314353546
+      },
+      {
+        "parameter": "GRU_biases",
+        "entries_checked": 9,
+        "max_absolute_error": 6.212423397933264e-07,
+        "max_relative_error_floor_1e4": 0.005336700450442322
+      },
+      {
+        "parameter": "initial_hidden",
+        "entries_checked": 3,
+        "max_absolute_error": 7.88209992608202e-07,
+        "max_relative_error_floor_1e4": 1.6763510843607712e-05
+      }
+    ],
+    "numpy_forward_loss_and_hidden_replay": true,
+    "causal_encoder_replay": true,
+    "loss": 0.6800274958474267
+  },
+  "stage_reports": {
+    "selection": {
+      "stage": "selection",
+      "factors": 24,
+      "epochs": 6,
+      "negative_samples": 4,
+      "negative_sampling": "frequency^.75, reject all observed fitting-history books",
+      "BPTT_truncation": 20,
+      "learning_rate": 0.03,
+      "optimizer": "Adagrad, accumulator initial1e-6, gradient norm clip5, recurrent/input matrices decay1e-5",
+      "loss": "mean pairwise BPR softplus, four sampled negatives per next-book target",
+      "seed": 2027,
+      "fitting_events": 2380475,
+      "next_book_training_steps_per_epoch": 2293689,
+      "seconds": 125.62836122512817,
+      "cold_input_rows_zeroed": 9665,
+      "query_scores": [
+        173572,
+        3
+      ],
+      "rating_values_used": false,
+      "timestamps_used": false
+    },
+    "evaluation": {
+      "stage": "evaluation",
+      "factors": 24,
+      "epochs": 6,
+      "negative_samples": 4,
+      "negative_sampling": "frequency^.75, reject all observed fitting-history books",
+      "BPTT_truncation": 20,
+      "learning_rate": 0.03,
+      "optimizer": "Adagrad, accumulator initial1e-6, gradient norm clip5, recurrent/input matrices decay1e-5",
+      "loss": "mean pairwise BPR softplus, four sampled negatives per next-book target",
+      "seed": 2027,
+      "fitting_events": 2467261,
+      "next_book_training_steps_per_epoch": 2380475,
+      "seconds": 128.4350664615631,
+      "cold_input_rows_zeroed": 6379,
+      "query_scores": [
+        520716,
+        3
+      ],
+      "rating_values_used": false,
+      "timestamps_used": false
+    },
+    "full": {
+      "stage": "full",
+      "factors": 24,
+      "epochs": 6,
+      "negative_samples": 4,
+      "negative_sampling": "frequency^.75, reject all observed fitting-history books",
+      "BPTT_truncation": 20,
+      "learning_rate": 0.03,
+      "optimizer": "Adagrad, accumulator initial1e-6, gradient norm clip5, recurrent/input matrices decay1e-5",
+      "loss": "mean pairwise BPR softplus, four sampled negatives per next-book target",
+      "seed": 2027,
+      "fitting_events": 2554047,
+      "next_book_training_steps_per_epoch": 2467261,
+      "seconds": 116.81892848014832,
+      "cold_input_rows_zeroed": 3164,
+      "query_scores": [
+        173572,
+        3
+      ],
+      "rating_values_used": false,
+      "timestamps_used": false
+    }
+  },
+  "mean_baseline_holdout_accuracy": 0.9257210892191882,
+  "mean_GRU_holdout_accuracy": 0.925663478895418,
+  "checks": {
+    "selection": {
+      "fitting_events": 2380475,
+      "own_target_exclusion": true,
+      "independent_numpy_encoder_max_error": 6.556510925292969e-07,
+      "candidate_score_replay": true,
+      "cold_and_unknown_score_zero": true
+    },
+    "evaluation": {
+      "fitting_events": 2467261,
+      "own_target_exclusion": true,
+      "independent_numpy_encoder_max_error": 7.748603820800781e-07,
+      "candidate_score_replay": true,
+      "cold_and_unknown_score_zero": true
+    },
+    "full": {
+      "fitting_events": 2554047,
+      "own_target_exclusion": null,
+      "independent_numpy_encoder_max_error": 8.046627044677734e-07,
+      "candidate_score_replay": true,
+      "cold_and_unknown_score_zero": true,
+      "target_exclusion_note": "Not applicable: test targets are hidden; model fits only supplied training rows."
+    },
+    "output": {
+      "rows": 86786,
+      "row_order_and_ids_unchanged": true,
+      "choices_valid": true,
+      "saved_model_margin_replay": true,
+      "candidate_swap_antisymmetry": true,
+      "sha256": "db44c82f4ff8f7f5825b67c7173569040004f91e7f6f6b66b3ced832b8c2e616"
+    }
+  },
+  "source_sha256": {
+    "task5_gru.py": "ca595dac18e98f743c07fbcd97bceb98556adbdde033280cc79d2b1615aec3aa",
+    "task5_gru.cpp": "03b0c542cb0aeca4972d119b8dafd6b0d733379f10aabee1c8d516ecfd218160",
+    "task5_gru_checks.py": "472b1349af3ccbdb26a3e97f89d89f882b3abd58dcd07d6de8053bee93cd740b"
+  }
+}
