@@ -1,0 +1,103 @@
+{
+  "weights": {
+    "accepted": 0.0,
+    "median_raw": 0.008621097809580928,
+    "median_log": 0.0,
+    "median_correction15": 0.44638134950997876,
+    "median_correction31": 0.5449975526804404
+  },
+  "runs": {
+    "median_raw": {
+      "config": {
+        "kind": "raw",
+        "num_leaves": 31,
+        "min_child_samples": 200,
+        "reg_lambda": 50.0,
+        "learning_rate": 0.035
+      },
+      "iterations": 1171,
+      "inner_MAE_seconds": 7108042.766092752,
+      "evaluation_MAE_seconds": 7564793.989105962
+    },
+    "median_log": {
+      "config": {
+        "kind": "log",
+        "num_leaves": 63,
+        "min_child_samples": 200,
+        "reg_lambda": 50.0,
+        "learning_rate": 0.035
+      },
+      "iterations": 244,
+      "inner_MAE_seconds": 7172258.303077501,
+      "evaluation_MAE_seconds": 7654302.214208763
+    },
+    "median_correction15": {
+      "config": {
+        "kind": "residual",
+        "num_leaves": 15,
+        "min_child_samples": 150,
+        "reg_lambda": 30.0,
+        "learning_rate": 0.025
+      },
+      "iterations": 1525,
+      "inner_MAE_seconds": 6815042.542530921,
+      "evaluation_MAE_seconds": 7107349.263142825
+    },
+    "median_correction31": {
+      "config": {
+        "kind": "residual",
+        "num_leaves": 31,
+        "min_child_samples": 200,
+        "reg_lambda": 50.0,
+        "learning_rate": 0.025
+      },
+      "iterations": 1263,
+      "inner_MAE_seconds": 6813884.175205472,
+      "evaluation_MAE_seconds": 7099997.942751693
+    }
+  },
+  "inner_accepted_MAE_seconds": 6843662.406156911,
+  "inner_new_MAE_seconds": 6811193.032385722,
+  "evaluation_accepted_MAE_seconds": 7155338.850502782,
+  "evaluation_new_MAE_seconds": 7102518.494113419,
+  "paired_MAE_change_seconds": -52820.356389360895,
+  "approx_user_IID95pct_change_seconds": [
+    -60385.23873596999,
+    -45255.47404275179
+  ],
+  "selection_users": 55403,
+  "inner_selection_train_users": 44322,
+  "inner_selection_holdout_users": 11081,
+  "evaluation_users": 55403,
+  "public_reference_MAE_seconds": 8452714.299367478,
+  "protocol": "Direct experts fit earlier targets only; counts stop using80% penultimate targets. Correction experts fit80% penultimate targets and stop on remaining20%. Convex weights use inner20% only and are fixed before final-gap evaluation. Production refits all available known targets. Historical cohorts reused; local gains do not establish public/hidden rank.",
+  "output": "/workspace/output/task6_quantile_ensemble/task_6_predictions.csv",
+  "rows": 55403,
+  "sha256": "c94080bbf42c81d99c5c342b038dfeaebd5bc30f2d2711c745e8f35e2b5309f9",
+  "mean_absolute_change_vs_accepted_seconds": 488623.0559393937,
+  "input_sha256": {
+    "task_6_train.csv": "9daabd75375f2fcb8f4503bbbedee5111a7cde6cb67c0268ca4544ce0bf8cd7e",
+    "task_6_test.csv": "14cc58faac56d2e823c7efa5754b0d9af5b38c1c6353ba9cb94916d903a5fba8"
+  },
+  "checks": {
+    "rows": 55403,
+    "test_ids_order_header_preserved": true,
+    "finite_nonnegative_seconds": true,
+    "saved_model_ensemble_replay": true,
+    "same_final_gap_evaluation_targets": true,
+    "inner_reader_overlap": 0,
+    "quantile_alpha_half_verified": true,
+    "evaluation_MAE_seconds": 7102518.494113419,
+    "input_feature_sha256": {
+      "task6_improved/validation.npz": "6f73cf7d6d0d21aabcb63ad27026e48cb2f905d0b7741fb447d417b58f9ed376",
+      "task6_improved/full.npz": "5502ecbd663319050f7878ff9533905e46a01a0a16f3032d7f84309484a61de7",
+      "task6_next/validation_peer.npz": "6f174e17269036be9655f9892434c883160db25400db14150cc60cbee2f505a0",
+      "task6_next/full_peer.npz": "b5289cf3116fcced36573c1510a07f1ed4c32630ac05b66433e3cb3635569d12"
+    },
+    "output_sha256": "c94080bbf42c81d99c5c342b038dfeaebd5bc30f2d2711c745e8f35e2b5309f9"
+  },
+  "source_sha256": {
+    "task6_quantile.py": "34f673e37ef7dd73bbd22892da56481bafcb4335d8e7c52b8ae51b5213ed2ffb",
+    "task6_quantile_checks.py": "3292a78d3c5adaacd7fcb7a6a511afc489c917fc1bcda371057aeebea1a2b196"
+  }
+}
