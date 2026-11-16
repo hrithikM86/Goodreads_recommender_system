@@ -1,0 +1,31 @@
+{
+  "weights": {
+    "catboost": 0.5,
+    "xgboost": 0.1,
+    "lightgbm": 0.4
+  },
+  "blend_selection_accuracy": 0.9387646581399904,
+  "blend_check_accuracy": 0.9402496361804545,
+  "whole_historical_evaluation_accuracy": 0.9395071575500609,
+  "components": {
+    "catboost": {
+      "selection": 0.9379530379782262,
+      "check": 0.9397458860405239,
+      "whole": 0.9388494745532653
+    },
+    "xgboost": {
+      "selection": 0.9383448546080434,
+      "check": 0.9399977611104892,
+      "whole": 0.9391713194240376
+    },
+    "lightgbm": {
+      "selection": 0.9377851165654474,
+      "check": 0.9395499832083287,
+      "whole": 0.9386675622350027
+    }
+  },
+  "rows": 20000,
+  "changed_vs_public_best_lightgbm": 118,
+  "sha256": "5b175292c8f5924a92d24e8da82cbbe5f44ea1391ff846248535ff4d565f734f",
+  "protocol": "Fixed component models; split prior evaluation seed923 into blend-selection/check halves; weights selected on selection only. All three weights >=.1. Cohorts reused across earlier experiments; not unbiased hidden-test estimates. No test labels used."
+}

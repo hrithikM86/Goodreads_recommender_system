@@ -30,12 +30,15 @@
     },
     "4": {
       "metric": "accuracy",
-      "score": 0.9478,
-      "rank": 66,
-      "accepted": "task4_all_models_retrained_fm",
+      "score": 0.9485,
+      "rank": null,
+      "accepted": "task4_lightgbm",
       "other_reported_scores": {
         "temporal_readers_round4": 0.9462,
-        "accepted_plus_fm": 0.9467
+        "accepted_plus_fm": 0.9467,
+        "xgboost": 0.9482,
+        "catboost_all_refit": 0.9478,
+        "three_tree_blend": 0.948
       }
     },
     "5": {

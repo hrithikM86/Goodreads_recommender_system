@@ -1,0 +1,232 @@
+{
+  "xgboost": {
+    "kind": "xgboost",
+    "hyperparameters_reused": {
+      "params": {
+        "max_depth": 4,
+        "min_child_weight": 20
+      },
+      "iterations": 1553,
+      "inner_accuracy": 0.9416497586231022
+    },
+    "evaluation_accuracy": 0.9394092047633041,
+    "same_combiner_without_item2vec_evaluation": 0.9391713194240376,
+    "new_features": [
+      "item2vec_e5_cos_mean",
+      "item2vec_e5_cos_max",
+      "item2vec_e5_cos_prev",
+      "item2vec_e5_cos_next",
+      "item2vec_e5_cos_prev3",
+      "item2vec_e5_cos_next3",
+      "item2vec_e5_cos_time30",
+      "item2vec_e5_cos_time180",
+      "item2vec_e5_cos_time730",
+      "item2vec_e5_sgns_mean",
+      "item2vec_e5_sgns_time180",
+      "item2vec_e5_sgns_prev",
+      "item2vec_e12_cos_mean",
+      "item2vec_e12_cos_max",
+      "item2vec_e12_cos_prev",
+      "item2vec_e12_cos_next",
+      "item2vec_e12_cos_prev3",
+      "item2vec_e12_cos_next3",
+      "item2vec_e12_cos_time30",
+      "item2vec_e12_cos_time180",
+      "item2vec_e12_cos_time730",
+      "item2vec_e12_sgns_mean",
+      "item2vec_e12_sgns_time180",
+      "item2vec_e12_sgns_prev"
+    ],
+    "total_component_scores": 142,
+    "selection_pairs": 71462,
+    "evaluation_pairs": 71463,
+    "protocol": "All previous component features unchanged; add only training-fitted Item2vec scores. Fixed previous tree settings; no evaluation-based tuning. Cohorts reused across earlier experiments. Test labels unavailable.",
+    "input_feature_hashes": {
+      "validation_features.npz": "8a037a2eca7e19e5292e6943178416ab2f6e06acdf4a2c760713d0b9f6478448",
+      "full_features.npz": "c420b6bf7cbad130700016b481e1d6ed216ba2d73cdd432c859c3b9eae174e52"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "09edefcb6db6cf73a1323038de77526219daa716df36c3d3fa44f3e9799a6f9a",
+      "changed_vs_accepted_lightgbm": 194,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "lightgbm": {
+    "kind": "lightgbm",
+    "hyperparameters_reused": {
+      "params": {
+        "num_leaves": 15,
+        "min_child_samples": 100
+      },
+      "iterations": 1100,
+      "inner_accuracy": 0.9415098299867067
+    },
+    "evaluation_accuracy": 0.9392132991897906,
+    "same_combiner_without_item2vec_evaluation": 0.9386675622350027,
+    "new_features": [
+      "item2vec_e5_cos_mean",
+      "item2vec_e5_cos_max",
+      "item2vec_e5_cos_prev",
+      "item2vec_e5_cos_next",
+      "item2vec_e5_cos_prev3",
+      "item2vec_e5_cos_next3",
+      "item2vec_e5_cos_time30",
+      "item2vec_e5_cos_time180",
+      "item2vec_e5_cos_time730",
+      "item2vec_e5_sgns_mean",
+      "item2vec_e5_sgns_time180",
+      "item2vec_e5_sgns_prev",
+      "item2vec_e12_cos_mean",
+      "item2vec_e12_cos_max",
+      "item2vec_e12_cos_prev",
+      "item2vec_e12_cos_next",
+      "item2vec_e12_cos_prev3",
+      "item2vec_e12_cos_next3",
+      "item2vec_e12_cos_time30",
+      "item2vec_e12_cos_time180",
+      "item2vec_e12_cos_time730",
+      "item2vec_e12_sgns_mean",
+      "item2vec_e12_sgns_time180",
+      "item2vec_e12_sgns_prev"
+    ],
+    "total_component_scores": 142,
+    "selection_pairs": 71462,
+    "evaluation_pairs": 71463,
+    "protocol": "All previous component features unchanged; add only training-fitted Item2vec scores. Fixed previous tree settings; no evaluation-based tuning. Cohorts reused across earlier experiments. Test labels unavailable.",
+    "input_feature_hashes": {
+      "validation_features.npz": "8a037a2eca7e19e5292e6943178416ab2f6e06acdf4a2c760713d0b9f6478448",
+      "full_features.npz": "c420b6bf7cbad130700016b481e1d6ed216ba2d73cdd432c859c3b9eae174e52"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "8c133d7205c3beeac32caae9bd1acf34e0ee486cc11b948ff72c2992302eaec2",
+      "changed_vs_accepted_lightgbm": 173,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "validation_embeddings": {
+    "stage": "validation",
+    "factors": 32,
+    "window": 5,
+    "negative_samples": 3,
+    "negative_distribution": "eligible interaction frequency power .75, 262144-entry sampled table",
+    "min_count": 2,
+    "epochs": [
+      5,
+      12
+    ],
+    "seed": 733,
+    "training_interactions_in_sequence": 1286276,
+    "active_books": 17178,
+    "features": [
+      "item2vec_e5_cos_mean",
+      "item2vec_e5_cos_max",
+      "item2vec_e5_cos_prev",
+      "item2vec_e5_cos_next",
+      "item2vec_e5_cos_prev3",
+      "item2vec_e5_cos_next3",
+      "item2vec_e5_cos_time30",
+      "item2vec_e5_cos_time180",
+      "item2vec_e5_cos_time730",
+      "item2vec_e5_sgns_mean",
+      "item2vec_e5_sgns_time180",
+      "item2vec_e5_sgns_prev",
+      "item2vec_e12_cos_mean",
+      "item2vec_e12_cos_max",
+      "item2vec_e12_cos_prev",
+      "item2vec_e12_cos_next",
+      "item2vec_e12_cos_prev3",
+      "item2vec_e12_cos_next3",
+      "item2vec_e12_cos_time30",
+      "item2vec_e12_cos_time180",
+      "item2vec_e12_cos_time730",
+      "item2vec_e12_sgns_mean",
+      "item2vec_e12_sgns_time180",
+      "item2vec_e12_sgns_prev"
+    ],
+    "queries": 285850,
+    "ratings_used": false,
+    "zero_rating_events_retained": true,
+    "context": "only fitted training rows; query book excluded from pooled history; prior and following KNOWN training books relative to supplied timestamp; invalid dates omitted from ordered sequence",
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    }
+  },
+  "full_embeddings": {
+    "stage": "full",
+    "factors": 32,
+    "window": 5,
+    "negative_samples": 3,
+    "negative_distribution": "eligible interaction frequency power .75, 262144-entry sampled table",
+    "min_count": 2,
+    "epochs": [
+      5,
+      12
+    ],
+    "seed": 733,
+    "training_interactions_in_sequence": 1429194,
+    "active_books": 17178,
+    "features": [
+      "item2vec_e5_cos_mean",
+      "item2vec_e5_cos_max",
+      "item2vec_e5_cos_prev",
+      "item2vec_e5_cos_next",
+      "item2vec_e5_cos_prev3",
+      "item2vec_e5_cos_next3",
+      "item2vec_e5_cos_time30",
+      "item2vec_e5_cos_time180",
+      "item2vec_e5_cos_time730",
+      "item2vec_e5_sgns_mean",
+      "item2vec_e5_sgns_time180",
+      "item2vec_e5_sgns_prev",
+      "item2vec_e12_cos_mean",
+      "item2vec_e12_cos_max",
+      "item2vec_e12_cos_prev",
+      "item2vec_e12_cos_next",
+      "item2vec_e12_cos_prev3",
+      "item2vec_e12_cos_next3",
+      "item2vec_e12_cos_time30",
+      "item2vec_e12_cos_time180",
+      "item2vec_e12_cos_time730",
+      "item2vec_e12_sgns_mean",
+      "item2vec_e12_sgns_time180",
+      "item2vec_e12_sgns_prev"
+    ],
+    "queries": 40000,
+    "ratings_used": false,
+    "zero_rating_events_retained": true,
+    "context": "only fitted training rows; query book excluded from pooled history; prior and following KNOWN training books relative to supplied timestamp; invalid dates omitted from ordered sequence",
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    }
+  },
+  "classifier_replay": {
+    "xgboost": {
+      "rows": 20000,
+      "serialized_model_replay": true
+    },
+    "lightgbm": {
+      "rows": 20000,
+      "serialized_model_replay": true
+    }
+  },
+  "accepted_public_accuracy": 0.9485,
+  "new_public_scores": null,
+  "checks": {
+    "independent_dense_temporal_score_formulas": true,
+    "SGNS_learnability": true,
+    "heldout_positive_exclusion": true,
+    "original_query_ID_alignment": true,
+    "input_CSV_hashes_match_accepted_bank": true,
+    "final_embedding_real_query_replay": 64
+  },
+  "source_hashes": {
+    "task4_item2vec.cpp": "2694e8c6329765d3f8dbbd7e6ea04811e5b946189de639a18cd05927a6fc6d9c",
+    "task4_item2vec.py": "9d773587655b4a652c57fc5b0502a9712dc1a0c2851fb81b856e0a8586153a94",
+    "task4_item2vec_combiners.py": "b9e0a7c0da1f229b169a4af29cb10fb7825ff4ebd8b26fcf86fa88533b7e046a",
+    "task4_item2vec_checks.py": "619daa3bc058462d9db0a84d7a01f1361bdc61b33399636ed75bc50fd68962de"
+  }
+}
