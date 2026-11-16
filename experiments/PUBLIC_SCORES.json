@@ -1,11 +1,11 @@
 {
   "source": "User-reported Gradescope public half of test set",
-  "reported_date": "2026-11-15",
+  "reported_date": "2026-11-16",
   "tasks": {
     "1": {
       "metric": "MSE",
       "score": 0.5357130495771631,
-      "rank": 205,
+      "rank": 242,
       "accepted": "task1_neural/ensemble_blend50",
       "previous_rank": 208,
       "other_reported_scores": {
@@ -16,7 +16,7 @@
     "2": {
       "metric": "accuracy",
       "score": 0.9505,
-      "rank": 79,
+      "rank": 96,
       "rejected_round4_readers": {
         "score": 0.9372,
         "rank": 390,
@@ -26,12 +26,12 @@
     "3": {
       "metric": "MSE",
       "score": 0.6825445785868727,
-      "rank": 104
+      "rank": 127
     },
     "4": {
       "metric": "accuracy",
       "score": 0.9486,
-      "rank": 57,
+      "rank": 60,
       "accepted": "task4_item2vec_lightgbm",
       "other_reported_scores": {
         "temporal_readers_round4": 0.9462,
@@ -42,19 +42,20 @@
         "item2vec_xgboost": 0.9481,
         "lightgbm_without_item2vec": 0.9485,
         "fism_lightgbm": 0.9477,
-        "fpmc_lightgbm": 0.9479
+        "fpmc_lightgbm": 0.9479,
+        "tuned_lightgbm": 0.948
       }
     },
     "5": {
       "metric": "accuracy",
       "score": 0.9219689811720785,
-      "rank": 116,
+      "rank": 126,
       "accepted": "task5_round3/preference/primary"
     },
     "6": {
       "metric": "MAE_seconds",
       "score": 8452714.299367478,
-      "rank": 108,
+      "rank": 129,
       "accepted": "task6_next/stack_primary"
     }
   },
