@@ -1,0 +1,63 @@
+{
+  "rolling_evaluation_accuracy_by_negative_seed": {
+    "43": 0.9247228815707602,
+    "441": 0.9254027147235729,
+    "997": 0.9244117714838799
+  },
+  "rolling_evaluation_mean": 0.9248457892594044,
+  "old_stale_evaluation_accuracy": 0.9235245316064803,
+  "comparison_limit": "Different fitted graph and freshly sampled negatives, not an apples-to-apples model gain. Production refit uses final training labels; no independent accuracy claimed for production weights.",
+  "evaluation_component_graph": "H[:-1], target H[-1] excluded",
+  "selection_component_graph": "H[:-2], target H[-2] excluded",
+  "production_component_graph": "H, existing fully fitted accepted component banks reused",
+  "combiner": "Accepted 224/260-score MLPs; 64/32 layers, alpha .1, seeds71/73,16/8epochs, fixed equal blend",
+  "production_training_pairs": 173572,
+  "negative_sampling": "Event popularity, reject target only, three evaluation seeds; one randomly assigned seed per reader for production final-event pairs",
+  "output": "/workspace/output/task5_rolling_neural/task_5_predictions.csv",
+  "rows": 86786,
+  "sha256": "9deaeea29bc2cf86443b065c6492fcb9f7f2a92a1f2dc4e31e9a63d041d80ad7",
+  "changed_vs_accepted": 1060,
+  "test_labels_used": false,
+  "rating_values_used": false,
+  "numeric_timestamps_used": false,
+  "input_hashes": {
+    "task_5_train.csv": "36a2f779b9113588eca35178873fe32a36d8cc45398f24d55a486aad722300f9",
+    "task_5_test.csv": "ed5876ea30f01e22784dd1f8aa3b17b157016244403b0d5488f5fb5938921831"
+  },
+  "reader_holdout_diagnostic": {
+    "heldout_readers": 17358,
+    "final_training_reader_overlap": 0,
+    "training_pairs": 156214,
+    "accepted_frozen_accuracy": {
+      "43": 0.9238391519760341,
+      "441": 0.9261435649268349,
+      "997": 0.9270077197833851
+    },
+    "refit_accuracy": {
+      "43": 0.9238967622998041,
+      "441": 0.9262587855743749,
+      "997": 0.9270077197833851
+    },
+    "protocol": "All past selection labels plus80% reader final labels for fitting; remaining20% reader final labels only evaluation. All component models exclude all final targets. Fixed accepted neural settings. Diagnostic historical split reused in prior experiments, not an untouched hidden test.",
+    "mean_accuracy_change": 5.7610323770019535e-05,
+    "approx_reader_clustered_95pct_delta_interval": [
+      -0.0008983223931571069,
+      0.001013543040697146
+    ]
+  },
+  "checks": {
+    "rows": 86786,
+    "own_target_in_query_history": 0,
+    "last_context_cold_rate": 0,
+    "production_model_margin_replay": true,
+    "candidate_swap_antisymmetry": true,
+    "test_row_order_and_ids_unchanged": true,
+    "choices_valid": true,
+    "evaluation_negative_seeds": [
+      43,
+      441,
+      997
+    ]
+  },
+  "evaluation_training_interactions": 2467261
+}
