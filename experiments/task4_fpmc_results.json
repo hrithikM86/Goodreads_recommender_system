@@ -1,0 +1,147 @@
+{
+  "results": {
+    "evaluation_accuracy": 0.939437191273806,
+    "accepted_item2vec_lightgbm_evaluation": 0.9392132991897906,
+    "hyperparameters": {
+      "params": {
+        "num_leaves": 15,
+        "min_child_samples": 100
+      },
+      "iterations": 1100
+    },
+    "new_features": [
+      "fpmc_e15_personal",
+      "fpmc_e15_previous_transition",
+      "fpmc_e15_following_transition",
+      "fpmc_e15_forward_joint",
+      "fpmc_e15_time180_bidirectional_joint",
+      "fpmc_e40_personal",
+      "fpmc_e40_previous_transition",
+      "fpmc_e40_following_transition",
+      "fpmc_e40_forward_joint",
+      "fpmc_e40_time180_bidirectional_joint",
+      "fpmc_e100_personal",
+      "fpmc_e100_previous_transition",
+      "fpmc_e100_following_transition",
+      "fpmc_e100_forward_joint",
+      "fpmc_e100_time180_bidirectional_joint"
+    ],
+    "total_component_scores": 157,
+    "protocol": "Existing component bank INCLUDING Item2vec reused; add fitting-only FPMC scores, refit LightGBM on71462 selection pairs. Same prior LightGBM hyperparameters. No new tuning on evaluation labels; cohorts have been reused in earlier experiments. No test labels used.",
+    "feature_hashes": {
+      "validation_features.npz": "a7d5b7be4f540b39fbebb7031cab531c2d8c19ba4fdd7e2034735398eb31e35a",
+      "full_features.npz": "25233d6d01bf7c23ffc7b57173b363ba325bc9a32bda1d0b239e94788dc59764"
+    },
+    "output_audit": {
+      "rows": 20000,
+      "sha256": "db3fec6b236fb31e8aa5b3c11d6d9d6d0733c407a1668f01c314aaff1fd527e7",
+      "changed_vs_accepted_item2vec_lightgbm": 130,
+      "pair_swap_antisymmetry": true
+    }
+  },
+  "validation": {
+    "stage": "validation",
+    "factors": 32,
+    "epochs": [
+      15,
+      40,
+      100
+    ],
+    "seed": 1049,
+    "learning_rate": 0.02,
+    "L2": 0.02,
+    "decay_per_epoch": 0.98,
+    "negative_sampling": "half fitting-event popularity, half active-book uniform; reject known reader books",
+    "training_transitions": 1248017,
+    "strict_time_transitions": true,
+    "features": [
+      "fpmc_e15_personal",
+      "fpmc_e15_previous_transition",
+      "fpmc_e15_following_transition",
+      "fpmc_e15_forward_joint",
+      "fpmc_e15_time180_bidirectional_joint",
+      "fpmc_e40_personal",
+      "fpmc_e40_previous_transition",
+      "fpmc_e40_following_transition",
+      "fpmc_e40_forward_joint",
+      "fpmc_e40_time180_bidirectional_joint",
+      "fpmc_e100_personal",
+      "fpmc_e100_previous_transition",
+      "fpmc_e100_following_transition",
+      "fpmc_e100_forward_joint",
+      "fpmc_e100_time180_bidirectional_joint"
+    ],
+    "query_rows": 285850,
+    "no_previous_context_rows": 8482,
+    "no_following_context_rows": 8552,
+    "context": "strictly earlier/later KNOWN fitting events relative to supplied query timestamp; tied timestamps do not establish direction",
+    "ratings_used": false,
+    "zero_rating_events_retained": true,
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    }
+  },
+  "full": {
+    "stage": "full",
+    "factors": 32,
+    "epochs": [
+      15,
+      40,
+      100
+    ],
+    "seed": 1049,
+    "learning_rate": 0.02,
+    "L2": 0.02,
+    "decay_per_epoch": 0.98,
+    "negative_sampling": "half fitting-event popularity, half active-book uniform; reject known reader books",
+    "training_transitions": 1390928,
+    "strict_time_transitions": true,
+    "features": [
+      "fpmc_e15_personal",
+      "fpmc_e15_previous_transition",
+      "fpmc_e15_following_transition",
+      "fpmc_e15_forward_joint",
+      "fpmc_e15_time180_bidirectional_joint",
+      "fpmc_e40_personal",
+      "fpmc_e40_previous_transition",
+      "fpmc_e40_following_transition",
+      "fpmc_e40_forward_joint",
+      "fpmc_e40_time180_bidirectional_joint",
+      "fpmc_e100_personal",
+      "fpmc_e100_previous_transition",
+      "fpmc_e100_following_transition",
+      "fpmc_e100_forward_joint",
+      "fpmc_e100_time180_bidirectional_joint"
+    ],
+    "query_rows": 40000,
+    "no_previous_context_rows": 1004,
+    "no_following_context_rows": 1136,
+    "context": "strictly earlier/later KNOWN fitting events relative to supplied query timestamp; tied timestamps do not establish direction",
+    "ratings_used": false,
+    "zero_rating_events_retained": true,
+    "input_hashes": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_4_test.csv": "6eeb6bec92f7a3b8ee65733bce3528522437939f9110288dd2ad62c556275ba2"
+    }
+  },
+  "audit": {
+    "native_gradient_and_dense_scores": true,
+    "strict_time_and_tie_contexts": true,
+    "heldout_exclusion": true,
+    "candidate_independent_contexts": true,
+    "query_bank_alignment": true,
+    "factor_real_query_replay": 64,
+    "serialized_model_replay": true,
+    "rows": 20000
+  },
+  "accepted_public_accuracy": 0.9486,
+  "new_public_accuracy": null,
+  "FISM_included": false,
+  "source_hashes": {
+    "task4_fpmc.py": "e6c69cb320b19fb5152ea62636c5f1ac8a55ef18d814b63e517af61112bd86e5",
+    "task4_fpmc_combiner.py": "79120f1623026e5caf8d70f63db9a70c76c717d3a9b035cf1110cbbbd3de9759",
+    "task4_fpmc_checks.py": "1b45e98cc5d5d80cfb9cbf63ce3ee338eed4aa34ec3fa46e34bd50fcfb9ca019",
+    "task5_fpmc_kernel.cpp": "3e1e581cdce388a141c078ef6e1882391e4eac2b2902399bb7d4b8b1817b884a"
+  }
+}

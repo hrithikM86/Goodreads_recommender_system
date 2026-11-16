@@ -40,7 +40,8 @@
         "catboost_all_refit": 0.9478,
         "three_tree_blend": 0.948,
         "item2vec_xgboost": 0.9481,
-        "lightgbm_without_item2vec": 0.9485
+        "lightgbm_without_item2vec": 0.9485,
+        "fism_lightgbm": 0.9477
       }
     },
     "5": {
