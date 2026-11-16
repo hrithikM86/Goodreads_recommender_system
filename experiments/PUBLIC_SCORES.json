@@ -50,7 +50,12 @@
       "metric": "accuracy",
       "score": 0.9219689811720785,
       "rank": 126,
-      "accepted": "task5_round3/preference/primary"
+      "accepted": "task5_round3/preference/primary",
+      "other_reported_scores": {
+        "boosting_catboost": 0.9205862696748324,
+        "boosting_xgboost": 0.9200101398843131,
+        "boosting_lightgbm": 0.920125365842417
+      }
     },
     "6": {
       "metric": "MAE_seconds",

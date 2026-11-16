@@ -1,0 +1,109 @@
+{
+  "results": {
+    "evaluation_accuracy": 0.9248841979121056,
+    "accepted_evaluation_accuracy": 0.9235245316064803,
+    "architecture": "Accepted two64/32 MLPs, same seeds71/73 and16/8 epochs, alpha.1; add8 Item2vec features to each. Existing accepted50/50 final structure retained; no new old/new-model blend.",
+    "networks": {
+      "sequence": {
+        "seed": 71,
+        "epochs": 16
+      },
+      "preference": {
+        "seed": 73,
+        "epochs": 8
+      }
+    },
+    "new_features": [
+      "cos_last",
+      "cos_recent3",
+      "cos_recent10",
+      "cos_decay20",
+      "cos_max20",
+      "sgns_last",
+      "sgns_recent3",
+      "sgns_decay20"
+    ],
+    "protocol": "One new underlying model only. All existing component features unchanged. Fixed accepted neural settings; train selection/penultimate pairs only. Final-event evaluation excluded from embedding and classifier fitting. Cohorts reused; local scores diagnostic.",
+    "output_audit": {
+      "rows": 86786,
+      "sha256": "9833a58cc05ab65899d90750224914ef0939a614bb4f5c0f94be234c42543b7f",
+      "changed_vs_accepted": 1307
+    },
+    "input_hashes": {
+      "task_5_train.csv": "36a2f779b9113588eca35178873fe32a36d8cc45398f24d55a486aad722300f9",
+      "task_5_test.csv": "ed5876ea30f01e22784dd1f8aa3b17b157016244403b0d5488f5fb5938921831"
+    }
+  },
+  "validation": {
+    "full": false,
+    "factors": 32,
+    "epochs": 12,
+    "window": 5,
+    "negative_samples": 3,
+    "negative_frequency_power": 0.75,
+    "min_count": 2,
+    "seed": 1777,
+    "training_events": 2292401,
+    "active_books": 137974,
+    "features": [
+      "cos_last",
+      "cos_recent3",
+      "cos_recent10",
+      "cos_decay20",
+      "cos_max20",
+      "sgns_last",
+      "sgns_recent3",
+      "sgns_decay20"
+    ],
+    "ratings_used": false,
+    "numeric_timestamps_used": false,
+    "full_factor_tables_retained": false,
+    "note": "Full factor tables regenerate deterministically; cached scores and sampled factors retained due disk capacity. Only fitting prefixes train embeddings. Query histories contain no own hidden targets."
+  },
+  "full": {
+    "full": true,
+    "factors": 32,
+    "epochs": 12,
+    "window": 5,
+    "negative_samples": 3,
+    "negative_frequency_power": 0.75,
+    "min_count": 2,
+    "seed": 1777,
+    "training_events": 2464827,
+    "active_books": 143207,
+    "features": [
+      "cos_last",
+      "cos_recent3",
+      "cos_recent10",
+      "cos_decay20",
+      "cos_max20",
+      "sgns_last",
+      "sgns_recent3",
+      "sgns_decay20"
+    ],
+    "ratings_used": false,
+    "numeric_timestamps_used": false,
+    "full_factor_tables_retained": false,
+    "note": "Full factor tables regenerate deterministically; cached scores and sampled factors retained due disk capacity. Only fitting prefixes train embeddings. Query histories contain no own hidden targets."
+  },
+  "audit": {
+    "independent_dense_pooling": true,
+    "unknown_cold_and_self_handling": true,
+    "sampled_embedding_replay_rows": 256,
+    "chronological_target_exclusion": true,
+    "prefix_training_count_verified": true,
+    "two_network_saved_model_replay": true,
+    "pair_swap_antisymmetry": true,
+    "accepted_reference_replay": true,
+    "rows": 86786,
+    "sha256": "9833a58cc05ab65899d90750224914ef0939a614bb4f5c0f94be234c42543b7f"
+  },
+  "accepted_public_accuracy": 0.9219689811720785,
+  "new_public_accuracy": null,
+  "source_hashes": {
+    "task5_item2vec.py": "c769871a0d05fba99349578cdce3a42191c59fb1f221e0485ad47b60047bd9f7",
+    "task5_item2vec.cpp": "9c40fd77aa2d13d900d4d39ed2d17bad9a8f560b412375ac2efcb89aaed5fa6f",
+    "task5_item2vec_checks.py": "403d2cd4b8c2865c81ac62563a3423fb317f544fb485be5adf31edf5d4d36caa",
+    "task4_item2vec.cpp": "2694e8c6329765d3f8dbbd7e6ea04811e5b946189de639a18cd05927a6fc6d9c"
+  }
+}
