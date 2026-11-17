@@ -1,0 +1,22 @@
+{
+  "weights": {
+    "accepted": 0.2041991638970812,
+    "median_correction15": 0.3028727728425532,
+    "median_correction31": 0.4929280632603656
+  },
+  "inner_baseline_MAE": 6811193.032385722,
+  "inner_new_MAE": 6798957.995153269,
+  "public_accepted_MAE": 8408503.875509774,
+  "protocol": "Q25/Q75 fixed1171 trees fit only earlier192034 targets. Meta features for penultimate/final targets are out of sample. Correction counts fixed from accepted model. Weights fit only inner20% users; locked before final-gap evaluation. Production correction fits historical out-of-sample quantile features, test uses full-data quantile refits. Previously reused cohorts limit independence.",
+  "evaluation_baseline_MAE": 7102518.494113419,
+  "evaluation_new_MAE": 7086794.078888423,
+  "evaluation_components": {
+    "accepted": 7102518.494113419,
+    "median_correction15": 7091909.170414023,
+    "median_correction31": 7088529.052979813
+  },
+  "output": "/workspace/output/task6_interval_features/task_6_predictions.csv",
+  "rows": 55403,
+  "sha256": "ef48aee3a62143db4330399eb311e53d3fd09a924a111dfcb3b8304f08202b3c",
+  "features_added": 10
+}

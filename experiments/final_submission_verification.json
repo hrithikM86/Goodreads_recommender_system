@@ -1,0 +1,109 @@
+{
+  "code_sha256": "4cf4c0744acdc413797fb36087f2c432d183b075906994b8774129a0294b04b6",
+  "saved_model_replays": [
+    {
+      "task": 1,
+      "byte_identical_to_accepted": true,
+      "sha256": "6f2ea01ad9b3c6bd345fdbffb9a63b09f84995bed543ec7580253cfdc686a47b"
+    },
+    {
+      "task": 2,
+      "byte_identical_to_accepted": true,
+      "sha256": "9dd469b074af077ca895b1e1ed53b3b2fae456b3a98c9b8dde603d0169816880"
+    },
+    {
+      "task": 3,
+      "byte_identical_to_accepted": true,
+      "sha256": "a40f8aad6445a224df13cc591bdfa3cf75ad72d848d8e5477a8819d264063296"
+    },
+    {
+      "task": 4,
+      "byte_identical_to_accepted": true,
+      "sha256": "8c133d7205c3beeac32caae9bd1acf34e0ee486cc11b948ff72c2992302eaec2"
+    },
+    {
+      "task": 5,
+      "byte_identical_to_accepted": true,
+      "sha256": "9deaeea29bc2cf86443b065c6492fcb9f7f2a92a1f2dc4e31e9a63d041d80ad7"
+    },
+    {
+      "task": 6,
+      "byte_identical_to_accepted": true,
+      "sha256": "ef48aee3a62143db4330399eb311e53d3fd09a924a111dfcb3b8304f08202b3c"
+    }
+  ],
+  "clean_128_factor_refit": {
+    "raw_data_128_factor_refit_exact": true,
+    "maximum_prediction_difference": 0.0,
+    "rows": 20000,
+    "epochs": 200,
+    "parameters": {
+      "seed": 47,
+      "learning_rate": 0.005,
+      "factor_regularization": 0.08,
+      "drift_factor_regularization": 0.15,
+      "day_penalty": 30,
+      "item_period_penalty": 40,
+      "user_period_penalty": 10,
+      "initial_std": 0.07825422900366437
+    }
+  },
+  "clean_Task2_combiner_refit": {
+    "selected_XGBoost_refit_exact": true,
+    "maximum_margin_difference": 0.0,
+    "test_pairs": 20000,
+    "trees": 1041
+  },
+  "source_checks": {
+    "parsed_embedded_modules": 53,
+    "local_import_symbols_valid": true,
+    "embedded_source_files": 71,
+    "selected_settings_only": true
+  },
+  "package": {
+    "task_1_predictions.csv": {
+      "sha256": "6f2ea01ad9b3c6bd345fdbffb9a63b09f84995bed543ec7580253cfdc686a47b",
+      "rows": 20000,
+      "bytes": 844417
+    },
+    "task_2_predictions.csv": {
+      "sha256": "9dd469b074af077ca895b1e1ed53b3b2fae456b3a98c9b8dde603d0169816880",
+      "rows": 20000,
+      "bytes": 960023
+    },
+    "task_3_predictions.csv": {
+      "sha256": "a40f8aad6445a224df13cc591bdfa3cf75ad72d848d8e5477a8819d264063296",
+      "rows": 20000,
+      "bytes": 1065544
+    },
+    "task_4_predictions.csv": {
+      "sha256": "8c133d7205c3beeac32caae9bd1acf34e0ee486cc11b948ff72c2992302eaec2",
+      "rows": 20000,
+      "bytes": 1180025
+    },
+    "task_5_predictions.csv": {
+      "sha256": "9deaeea29bc2cf86443b065c6492fcb9f7f2a92a1f2dc4e31e9a63d041d80ad7",
+      "rows": 86786,
+      "bytes": 4165751
+    },
+    "task_6_predictions.csv": {
+      "sha256": "ef48aee3a62143db4330399eb311e53d3fd09a924a111dfcb3b8304f08202b3c",
+      "rows": 55403,
+      "bytes": 2344741
+    },
+    "assignment1.py": {
+      "sha256": "4cf4c0744acdc413797fb36087f2c432d183b075906994b8774129a0294b04b6",
+      "bytes": 268395
+    },
+    "writeup.txt": {
+      "sha256": "ce15d9dfbdf1c530ce47ef708e3743d5f9bb34084760a36aaa25852c54cc84c2",
+      "bytes": 9279
+    },
+    "readme.txt": {
+      "sha256": "c3b06738e190f3b7dee35bd9b6aad00c12322fe8902dbac2c157e058315a6adc",
+      "bytes": 4365
+    }
+  },
+  "full_six_task_cold_run_repeated": false,
+  "macOS_run_performed": false
+}

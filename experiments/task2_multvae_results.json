@@ -1,0 +1,113 @@
+{
+  "vae": {
+    "hidden": 128,
+    "latent": 64,
+    "input_dropout": 0.5,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "KL_cap": 0.2,
+    "KL_schedule": "min(.2,updates/10000)",
+    "epochs": 40,
+    "full_vocabulary": 51007,
+    "posterior_mean_inference": true,
+    "production_parameter_storage": "float16 reloaded before scoring"
+  },
+  "features": [
+    "popularity",
+    "already_seen",
+    "user_count",
+    "bpr64",
+    "bpr128",
+    "bpr96",
+    "als128",
+    "ease50",
+    "ease300",
+    "ease1000",
+    "ease_covered",
+    "cosine_max",
+    "cosine_top10",
+    "jaccard_max",
+    "slim02",
+    "slim2",
+    "multvae_logit",
+    "multvae_logprob"
+  ],
+  "iterations": 1322,
+  "new_weight": 0.9500000000000001,
+  "inner_accepted_accuracy": 0.9512810871783853,
+  "inner_augmented_accuracy": 0.9513885158725895,
+  "inner_blend_accuracy": 0.9514959445667938,
+  "blend_search": {
+    "0.0": 0.9512810871783853,
+    "0.05": 0.9511736584841811,
+    "0.1": 0.9509588010957727,
+    "0.15000000000000002": 0.9507976580544664,
+    "0.2": 0.9507439437073643,
+    "0.25": 0.9507976580544664,
+    "0.30000000000000004": 0.9510662297899769,
+    "0.35000000000000003": 0.9510125154428748,
+    "0.4": 0.9510125154428748,
+    "0.45": 0.9510125154428748,
+    "0.5": 0.9509588010957727,
+    "0.55": 0.9512273728312832,
+    "0.6000000000000001": 0.9512273728312832,
+    "0.65": 0.951119944137079,
+    "0.7000000000000001": 0.951119944137079,
+    "0.75": 0.9511736584841811,
+    "0.8": 0.9513885158725895,
+    "0.8500000000000001": 0.9514422302196917,
+    "0.9": 0.9514422302196917,
+    "0.9500000000000001": 0.9514959445667938,
+    "1.0": 0.9513885158725895
+  },
+  "protocol": "Mult-VAE fit90% observed rows only. Positive holdouts absent from all input histories. Epoch selected on inner training pairs only; meta early stopping/weight use inner validation. Final5% evaluation not used for selection. All original16 components retained. Rating-zero events included. Production VAE refit all raw train rows; expanded meta fits all known holdout pairs. Reused cohorts and synthetic negatives limit independence.",
+  "evaluation_accepted_accuracy": 0.9477240742133365,
+  "evaluation_augmented_accuracy": 0.948014137919921,
+  "evaluation_blend_accuracy": 0.948014137919921,
+  "evaluation_vae_alone_accuracy": 0.8537649194804636,
+  "outputs": {
+    "primary": {
+      "path": "/workspace/output/task2_multvae_primary/task_2_predictions.csv",
+      "rows": 20000,
+      "sha256": "5fd956c27c15f1d9efbd7574ad787fb2a67059a3cbc2a349e2df386f1a7f904c",
+      "changed_vs_accepted": 116
+    },
+    "blend": {
+      "path": "/workspace/output/task2_multvae_blend/task_2_predictions.csv",
+      "rows": 20000,
+      "sha256": "080a4b0b73c5c02d197bb5a9c5ec7f280d1c0d04d0ec6232fc128f16ad16edfb",
+      "changed_vs_accepted": 115
+    }
+  },
+  "input_manifest": {
+    "tasks_1_2_train.csv": "7d37e3c71f36f453a8470507072f4a6eb3c05de5024679c8e04b4fc9e285ff76",
+    "task_2_test.csv": "613c18c8c9fa64bd5e01f3f85586333ee2cef138e9d02c8e0e8839c9202660d7",
+    "variant": "with_zero",
+    "protocol": "task2_optimize_v1"
+  },
+  "checks": {
+    "gradient_check_max_error": 8.855530198026429e-11,
+    "saved_VAE_subset_replay_max_error": 0.0,
+    "replayed_candidate_scores": 128,
+    "prediction_rows_per_file": 20000,
+    "input_columns_preserved": true,
+    "accepted_CSV_unchanged": true
+  },
+  "paired_comparison": {
+    "new_wins": 301,
+    "new_losses": 274,
+    "evaluation_pairs": 93083,
+    "accuracy_gain": 0.00029006370658444614,
+    "approx_pair_IID95pct_interval": [
+      -0.00021485213532841923,
+      0.0007949795484973115
+    ]
+  },
+  "public_accepted_accuracy": 0.9513,
+  "new_public_accuracy": null,
+  "source_sha256": {
+    "task2_multvae_numpy.py": "f9cdf8113a83835819622c625531693800990638e37ef10e375185c5cf127c7d",
+    "task2_multvae_experiment.py": "e665e04779baae9d8d8bfbe34603393820f47455a1842b058f0a9588954afa01",
+    "task2_multvae_checks.py": "b153ddf2a27cc4d52a4bf9a6ac90d44c4d5a8a7fea1d5a0473cf273dd9172cc8"
+  }
+}

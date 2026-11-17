@@ -1,0 +1,121 @@
+{
+  "runs": {
+    "constant_control": {
+      "variant": "constant_control",
+      "feature_indices": [
+        0,
+        4,
+        5,
+        9,
+        10,
+        14,
+        15,
+        19,
+        20,
+        24
+      ],
+      "combiner_iterations": 576,
+      "new_weight": 0.0,
+      "inner_accepted_MSE": 0.6793864603121929,
+      "inner_augmented_MSE": 0.6807624433832318,
+      "inner_blend_MSE": 0.6793864603121929,
+      "evaluation_accepted_MSE": 0.6770932157586219,
+      "evaluation_augmented_MSE": 0.6783291607689331,
+      "evaluation_blend_MSE": 0.6770932157586219
+    },
+    "local_linear": {
+      "variant": "local_linear",
+      "feature_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "combiner_iterations": 642,
+      "new_weight": 0.42738492022261776,
+      "inner_accepted_MSE": 0.6793864603121929,
+      "inner_augmented_MSE": 0.6796946637893132,
+      "inner_blend_MSE": 0.6789988292480624,
+      "evaluation_accepted_MSE": 0.6770932157586219,
+      "evaluation_augmented_MSE": 0.6782504724352489,
+      "evaluation_blend_MSE": 0.6771502712434778
+    }
+  },
+  "checks": {
+    "weighted_ridge_solver_matches_direct_solution": true,
+    "infinite_slope_penalty_recovers_local_constant": true,
+    "identical_timestamps_stable": true,
+    "training_row_alignment_verified": true,
+    "features_finite": true,
+    "production_model_replay": true,
+    "accepted_CSV_unchanged": true,
+    "zero_ratings_excluded": true
+  },
+  "public_accepted_MSE": 0.6801266912314015,
+  "feature_names": [
+    "local_constant_user_30",
+    "local_linear_user_30",
+    "linear_minus_constant_user_30",
+    "local_slope_user_30",
+    "local_support_user_30",
+    "local_constant_user_90",
+    "local_linear_user_90",
+    "linear_minus_constant_user_90",
+    "local_slope_user_90",
+    "local_support_user_90",
+    "local_constant_user_365",
+    "local_linear_user_365",
+    "linear_minus_constant_user_365",
+    "local_slope_user_365",
+    "local_support_user_365",
+    "local_constant_item_90",
+    "local_linear_item_90",
+    "linear_minus_constant_item_90",
+    "local_slope_item_90",
+    "local_support_item_90",
+    "local_constant_item_365",
+    "local_linear_item_365",
+    "linear_minus_constant_item_365",
+    "local_slope_item_365",
+    "local_support_item_365"
+  ],
+  "protocol": "Residuals from accepted temporal-bias component fitted only original90% positive ratings. Fit local weighted intercept and signed slope around query time with exponential kernels; shrink sparse groups to zero. User tau30/90/365 and item tau90/365 fixed. Both sides of query timestamp allowed because Task3 is rating prediction. All275 accepted-capacity features retained. Matched local-constant control shares kernels/residuals/support. Meta iterations/weights selected only inner20% before final5% evaluation, independently per variant; historical cohorts reused. Production smoothers use all positive training rows, and meta fits all140536 known out-of-sample ratings.",
+  "output": "/workspace/output/task3_local_linear/task_3_predictions.csv",
+  "rows": 20000,
+  "sha256": "a40f8aad6445a224df13cc591bdfa3cf75ad72d848d8e5477a8819d264063296",
+  "input_manifest": {
+    "input": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_3_test.csv": "bbbf738c54777a99c5dfb307f01ffbd63cf15fc015413d70ab381a61e3d0945d"
+    },
+    "settings": "user30/90/365 lambda5/20, item90/365 lambda20/80, temporal-bias training residuals",
+    "accepted_hash": "f8383a6a1ee9121feeecf323170782cbd29964a526a28c2e33c725ef7789acb4"
+  },
+  "source_sha256": {
+    "task3_local_linear_features.py": "8f31c3a8181c966c8ec5a91ab2adb863edfe086a6841dd697f87998cb21b23a6",
+    "task3_local_linear_experiment.py": "10ce66d9531a7710606ef187035d3cd40fd95aa28cfe803a1b0d38c63a64183f"
+  },
+  "improved_final_holdout": false,
+  "recommendation": "Experimental candidate only; retain accepted128-factor ensemble unless new public feedback supports replacement."
+}

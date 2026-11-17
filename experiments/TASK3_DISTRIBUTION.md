@@ -1,0 +1,13 @@
+# Task3 error audit and distribution-model experiment
+
+Error audit of the accepted temporal-scaling blend: users with<=10 training ratings have local MSE.7912 versus.6189 for users with>300; books with<=10 ratings have MSE.7608 versus.6502 for books with>300. Most total squared error nevertheless comes from well-supported histories. Ratings1/2 constitute7041 of70268 evaluation rows (about10%) and38.27% of squared error. These true-rating buckets are diagnostic only, never inference features. The latest calendar year has higher error, but errors are spread across years.
+
+Experiment: five-class XGBoost over the same272 label-safe component/context features. Output is sum(rating*class_probability), not argmax. Unweighted multiclass likelihood preserves empirical frequencies; custom early stopping explicitly minimizes expected-rating MSE. Depth4, min_child_weight50, learning rate.035, L2=40, L1=.1, sampling.9, max_bin127, seed271, two threads. Inner validation selected831 rounds and46.94026% distribution expert/53.05974% accepted ensemble. No additional blend tuning after selection.
+
+Historical final holdout: accepted MSE.6771891326; distribution expert alone.6787447779; locked blend.6768166165. Gains mostly arise on ratings3/4, not the low-rating tail. A diagnostic hypothesis is not a claim that tail errors were solved.
+
+Second robustness check: GroupShuffleSplit seed83,80/20 by user across all140536 out-of-sample meta rows;112241 training and28295 validation ratings, with zero shared users. All five accepted meta components were freshly refitted (CatBoost depth6/8, LightGBM, original XGBoost, scaled-feature XGBoost), then combined with fixed accepted weights. Distribution expert refitted at fixed831 rounds, same locked blend. Accepted MSE.6868236371; distribution expert.6884333423; blend.6866279304. Thus the blend improves both checks; the distribution expert alone is weaker. Base models remain fitted on the original90% positive training rows, excluding every meta target. This is a second META-level holdout, not a fully independent base-training split. Historical cohorts and hyperparameter-selection data have been reused, so neither score is an untouched generalization estimate.
+
+Production fits the distribution combiner on all140536 known out-of-sample meta ratings and reuses full-data base predictions. Zero ratings excluded. No external data. Source: task3_distribution_experiment.py; initial slices: task3_error_audit.py. The accepted public MSE remains.6804250167145823 until new leaderboard feedback.
+
+Output: /workspace/output/task3_distribution/task_3_predictions.csv. Final results and output verification are recorded in task3_distribution_results.json after completion.

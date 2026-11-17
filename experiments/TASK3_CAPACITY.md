@@ -1,0 +1,13 @@
+# Task3:96/128-factor temporal SVD++
+
+Same audited user-block SGD kernel as existing temporal SVD++: user/item biases, user drift, user-day and user/item-period biases, month bias, drifting user factors and implicit reading-history factors. Zero ratings excluded. Matched configurations: seed47, learning rate.005 decaying.985/epoch, factor L2=.08, factor-drift L2=.15, day penalty30, item-period40, user-period10. Initialization std=.1*(48/factors)^.25 preserves initial dot-product variance across dimensions.
+
+New base holdout is nested INSIDE original RandomState42 base-training90% pool. RandomState91 selects90% of that pool for fitting (1138336 positive rows); remaining126482 rows split equally into epoch-selection/evaluation cohorts. Neither part overlaps cached meta targets. A fresh48-factor reference is trained on exactly the same rows. Epoch grid15/30/50/75/100 extended to150/200 because the larger models improved at the initial selection boundary. Selected48=100 epochs,96=200,128=200. Fresh evaluation MSE:48 .7359435376;96 .7331344742;128 .7308010586. These are standalone base-model scores, not ensemble scores.
+
+Each larger model is then fitted on the original90% positive rows to score all140536 out-of-sample meta targets. All272 accepted features retained; three capacity features appended: model score, difference from existing48-factor score, difference from learned-neighborhood mean. Separate fresh XGBoost regressors use the accepted configuration. Count and blend weight selected on original inner20% before cached final-holdout evaluation.96:436 trees,18.72186% new/81.27814% accepted.128:574 trees,43.43881% new/56.56119% accepted.
+
+Cached final meta holdout MSE: accepted.6771891326;96 blended.6771161501;128 blended.6770932158. Pure fresh combiners are weaker than accepted; only selected blends improve slightly. This holdout has been reused, and improvements do not guarantee leaderboard gains. Public accepted MSE remains.6804250167145823 pending feedback.
+
+Production factors refit all positive raw training rows at200 epochs. Large parameter states serialized/reloaded through compressed RAM archives;256 query-score replays match exactly. No persistent large experimental factor checkpoints; prediction arrays, code and configurations allow reproducible refitting. Accepted checkpoints untouched. Production combiners fit all140536 known meta targets and pass saved-model replay. Each CSV has20000 rows, original test columns/order, and finite ratings in[1,5].
+
+Outputs: /workspace/output/task3_timesvdpp96/task_3_predictions.csv and /workspace/output/task3_timesvdpp128/task_3_predictions.csv.

@@ -1,0 +1,260 @@
+{
+  "fresh": {
+    "48": {
+      "factors": 48,
+      "stage": "fresh",
+      "selected_epochs": 100,
+      "selection_MSE": 0.7288517962720081,
+      "evaluation_MSE": 0.7359435375993256,
+      "history": [
+        {
+          "epochs": 15,
+          "selection_MSE": 0.7399157331788627
+        },
+        {
+          "epochs": 30,
+          "selection_MSE": 0.7325970168603362
+        },
+        {
+          "epochs": 50,
+          "selection_MSE": 0.7299883353533013
+        },
+        {
+          "epochs": 75,
+          "selection_MSE": 0.7290467519906265
+        },
+        {
+          "epochs": 100,
+          "selection_MSE": 0.7288517962720081
+        },
+        {
+          "epochs": 150,
+          "selection_MSE": 0.7292003819434814
+        },
+        {
+          "epochs": 200,
+          "selection_MSE": 0.7294876666623475
+        }
+      ],
+      "selection_rows": 63241,
+      "evaluation_rows": 63241,
+      "train_rows": 1138336,
+      "original_meta_target_overlap": 0,
+      "parameters": {
+        "seed": 47,
+        "learning_rate": 0.005,
+        "factor_regularization": 0.08,
+        "drift_factor_regularization": 0.15,
+        "day_penalty": 30,
+        "item_period_penalty": 40,
+        "user_period_penalty": 10,
+        "initial_std": 0.1
+      },
+      "seconds": 61.62
+    },
+    "96": {
+      "factors": 96,
+      "stage": "fresh",
+      "selected_epochs": 200,
+      "selection_MSE": 0.7255354290814909,
+      "evaluation_MSE": 0.7331344741844611,
+      "history": [
+        {
+          "epochs": 15,
+          "selection_MSE": 0.7397900732311427
+        },
+        {
+          "epochs": 30,
+          "selection_MSE": 0.7322450552192287
+        },
+        {
+          "epochs": 50,
+          "selection_MSE": 0.7289631173633311
+        },
+        {
+          "epochs": 75,
+          "selection_MSE": 0.727158803462104
+        },
+        {
+          "epochs": 100,
+          "selection_MSE": 0.7262620971453919
+        },
+        {
+          "epochs": 150,
+          "selection_MSE": 0.7257113592219596
+        },
+        {
+          "epochs": 200,
+          "selection_MSE": 0.7255354290814909
+        }
+      ],
+      "selection_rows": 63241,
+      "evaluation_rows": 63241,
+      "train_rows": 1138336,
+      "original_meta_target_overlap": 0,
+      "parameters": {
+        "seed": 47,
+        "learning_rate": 0.005,
+        "factor_regularization": 0.08,
+        "drift_factor_regularization": 0.15,
+        "day_penalty": 30,
+        "item_period_penalty": 40,
+        "user_period_penalty": 10,
+        "initial_std": 0.08408964152537146
+      },
+      "seconds": 103.42,
+      "evaluation_MSE_change_vs48": -0.002809063414864496
+    },
+    "128": {
+      "factors": 128,
+      "stage": "fresh",
+      "selected_epochs": 200,
+      "selection_MSE": 0.723715533544854,
+      "evaluation_MSE": 0.7308010586479281,
+      "history": [
+        {
+          "epochs": 15,
+          "selection_MSE": 0.7399813001351953
+        },
+        {
+          "epochs": 30,
+          "selection_MSE": 0.7320739982630156
+        },
+        {
+          "epochs": 50,
+          "selection_MSE": 0.7282206089014832
+        },
+        {
+          "epochs": 75,
+          "selection_MSE": 0.7259795662442095
+        },
+        {
+          "epochs": 100,
+          "selection_MSE": 0.7247983762634285
+        },
+        {
+          "epochs": 150,
+          "selection_MSE": 0.7239770521342594
+        },
+        {
+          "epochs": 200,
+          "selection_MSE": 0.723715533544854
+        }
+      ],
+      "selection_rows": 63241,
+      "evaluation_rows": 63241,
+      "train_rows": 1138336,
+      "original_meta_target_overlap": 0,
+      "parameters": {
+        "seed": 47,
+        "learning_rate": 0.005,
+        "factor_regularization": 0.08,
+        "drift_factor_regularization": 0.15,
+        "day_penalty": 30,
+        "item_period_penalty": 40,
+        "user_period_penalty": 10,
+        "initial_std": 0.07825422900366437
+      },
+      "seconds": 111.31,
+      "evaluation_MSE_change_vs48": -0.005142478951397631
+    }
+  },
+  "public_reference_MSE": 0.6804250167145823,
+  "fresh_protocol": "RandomState91 split within original RandomState42 base-training90% pool:81% of full positives fit fresh models;9% new holdout split into equal epoch-selection/evaluation cohorts. This entire holdout is disjoint from cached meta10%. Matched48-factor model uses same regularization/seed and initialization-variance normalization. Evaluation half never selects epochs.",
+  "production_parameter_note": "Large experimental parameter states round-tripped through RAM, not persisted. Configurations, source and prediction arrays retained for reproducible refitting; accepted model checkpoints unchanged.",
+  "runs": {
+    "96": {
+      "factors": 96,
+      "factor_epochs": 200,
+      "combiner_iterations": 436,
+      "new_weight": 0.1872185598548466,
+      "inner_accepted_MSE": 0.6797196521567338,
+      "inner_augmented_MSE": 0.6807229490138376,
+      "inner_blend_MSE": 0.6796634364717102,
+      "evaluation_accepted_MSE": 0.6771891325690159,
+      "evaluation_augmented_MSE": 0.6779483708811699,
+      "evaluation_blend_MSE": 0.6771161500812185
+    },
+    "128": {
+      "factors": 128,
+      "factor_epochs": 200,
+      "combiner_iterations": 574,
+      "new_weight": 0.43438806455897916,
+      "inner_accepted_MSE": 0.6797196521567338,
+      "inner_augmented_MSE": 0.6799513659601916,
+      "inner_blend_MSE": 0.6793864603121929,
+      "evaluation_accepted_MSE": 0.6771891325690159,
+      "evaluation_augmented_MSE": 0.6778421612644581,
+      "evaluation_blend_MSE": 0.6770932157586219
+    }
+  },
+  "outputs": {
+    "96": {
+      "path": "/workspace/output/task3_timesvdpp96/task_3_predictions.csv",
+      "rows": 20000,
+      "sha256": "e6ef4975e038b3b38cea58c7bc2f81d2233bff6a6bf3e6f6545845031ecf4a61",
+      "factor_parameter_replay": true,
+      "combiner_replay": true
+    },
+    "128": {
+      "path": "/workspace/output/task3_timesvdpp128/task_3_predictions.csv",
+      "rows": 20000,
+      "sha256": "f8383a6a1ee9121feeecf323170782cbd29964a526a28c2e33c725ef7789acb4",
+      "factor_parameter_replay": true,
+      "combiner_replay": true
+    }
+  },
+  "input_manifest": {
+    "input_sha256": {
+      "tasks_3_4_train.csv": "2d1edc9327f223a7c2ddd9f1c4c8830aee09f241e0f1f7c385be6dd91131bf58",
+      "task_3_test.csv": "bbbf738c54777a99c5dfb307f01ffbd63cf15fc015413d70ab381a61e3d0945d"
+    },
+    "kernel_sha256": "76965a51214697f5ebf3cb6a86632c7031e5a5dbe8d229f5cc7b162e6f77626f",
+    "factors": [
+      48,
+      96,
+      128
+    ],
+    "original_split_seed": 42,
+    "nested_split_seed": 91,
+    "nested_training_fraction": 0.9,
+    "fresh_checkpoints": [
+      15,
+      30,
+      50,
+      75,
+      100,
+      150,
+      200
+    ],
+    "params": {
+      "seed": 47,
+      "learning_rate": 0.005,
+      "factor_regularization": 0.08,
+      "day_penalty": 30,
+      "item_period_penalty": 40,
+      "user_period_penalty": 10,
+      "dimension_normalized_initialization": true
+    }
+  },
+  "accepted_CSV_unchanged": true,
+  "zero_ratings_excluded": true,
+  "meta_protocol": "Original272 feature bank plus capacity score and differences from48-factor and learned-neighborhood predictions. New-factor epochs selected exclusively inside original base-training pool; meta count/weight selected inside original inner20% before final holdout evaluation. Separate files per capacity. Reused meta cohorts; no leaderboard guarantee.",
+  "source_sha256": {
+    "task3_capacity_models.py": "46f07b400061afc6b0e45bf00afadcb7591f4445a61d45654f073bcb40101636",
+    "task3_capacity_experiment.py": "f4333554e77df0289ee3b1c7169d2a846be136cad1c0b4d56d8d420495ee4427",
+    "task3_joint_kernel.cpp": "76965a51214697f5ebf3cb6a86632c7031e5a5dbe8d229f5cc7b162e6f77626f"
+  },
+  "epoch_boundary_extension": "Initial100-epoch ceiling extended to200 because fresh epoch-selection scores improved at the boundary; final capacity hyperparameters otherwise unchanged.",
+  "checks": {
+    "audited_native_SGD_matches_naive_implicit_updates": true,
+    "fresh_holdout_disjoint_from_original_meta_targets": true,
+    "held_out_positive_pairs_absent_from_fit_histories": true,
+    "zero_ratings_excluded": true,
+    "production_factor_parameter_replay_both_capacities": true,
+    "production_combiner_replay_both_capacities": true,
+    "original_test_columns_and_order_preserved": true,
+    "ratings_finite_and_in_1_to_5": true,
+    "accepted_CSV_unchanged": true
+  }
+}
