@@ -1,0 +1,159 @@
+ASSIGNMENT 1 - GOODREADS RECOMMENDER SYSTEM
+Name: Hrithik Mhatre
+TSN: 200478215
+
+CODE AND EXPERIMENT LOCATIONS
+
+Purpose                   | Branch / repository location
+--------------------------|----------------------------------------------------
+Executable submission     | main: Assignment 1/Submission/assignment1.py
+Writeup and predictions   | main: Assignment 1/Submission/
+Assignment instructions   | main: Assignment 1/readme.md
+Experiment implementations| Experiments: experiments/
+
+Code:
+https://github.com/hrithikM86/Goodreads_recommender_system/blob/main/Assignment%201/Submission/assignment1.py
+Submission directory:
+https://github.com/hrithikM86/Goodreads_recommender_system/tree/main/Assignment%201/Submission
+Experiments:
+https://github.com/hrithikM86/Goodreads_recommender_system/tree/Experiments/experiments
+
+TASK 1 - RATING PREDICTION
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+Biased SVD                 | Multiple user-book rating factor models.
+SVD++ / item-side SVD++    | Implicit reading-history factors on both sides.
+Collaborative neighborhoods| Cosine/Pearson and learned user/book ridge models;
+                           | separate reading-presence and rating-residual terms.
+CatBoost                   | Combines collaborative scores and support statistics.
+Five-class neural models  | Embedding classifiers and probability combiners.
+
+Exclude zero ratings and combine factor models with collaborative neighbors.
+Train the neural combiners on historical out-of-sample component predictions.
+Convert rating probabilities into their expected rating, not the winning class.
+Average the selected neural and collaborative ensembles; clip outputs to [1,5].
+
+TASK 2 - INTERACTION PREDICTION
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+BPR                        | 64/96/128-factor personal preference scores.
+Confidence-weighted ALS    | 128-factor implicit-feedback preferences.
+EASE / restricted SLIM     | Regularized book-to-book reading relationships.
+Cosine / Jaccard neighbors | Co-reading evidence and history support.
+Support features           | Popularity, prior reading, user count, coverage.
+CatBoost + XGBoost         | Symmetric pair classification and fixed score blend.
+
+Treat every observed row, including rating-zero rows, as a reading interaction.
+Generate historical positive/background pairs using training-popularity sampling.
+Combine score differences, sums and absolute differences; train mirrored pairs.
+Blend XGBoost and CatBoost margins 60/40 and choose the candidate with larger margin.
+
+TASK 3 - RATING PREDICTION WITH TIMESTAMPS
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+Temporal biases / SVD      | Calendar effects, user/item bias and preference drift.
+SVD++ / temporal factors   | Implicit histories, drifting factors and residual MF.
+Learned neighborhoods     | Time-weighted user/book ridge, Pearson and ordinal
+                           | signals, with separate presence/residual predictors.
+User-time rating scale    | Multiplicative scale on the time-dependent item bias.
+128-factor temporal SVD++ | Higher-capacity implicit-history model, 200 epochs.
+Local-linear smoothing    | Regularized level/slope of nearby training residuals.
+CatBoost / LightGBM / XGB | Stacking plus fixed selected blends of component scores.
+
+Exclude zero ratings and fit preference, neighborhood and temporal components.
+Add user-time scales and the 128-factor model to the historical feature bank.
+Fit local lines to training residuals around query times, shrinking sparse histories.
+Use out-of-sample stacking and fixed selected blends; clip expected ratings to [1,5].
+
+TASK 4 - INTERACTION PREDICTION WITH TIMESTAMPS
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+BPR / ALS                  | Global and user-period preferences.
+EASE / SLIM / neighbors    | Whole-history and time-local co-reading signals.
+Temporal factors / biases | Calendar activity, time density and preference drift.
+Factorization machine     | User/book/calendar/user-period feature interactions.
+Item2Vec                   | 32-dimensional skip-gram book embeddings and
+                           | timestamp-conditioned history similarities.
+LightGBM                   | Combines all component-pair differences and sums.
+
+Keep rating-zero interactions and condition collaborative scores on query time.
+Fit the component models separately, then add Item2Vec similarities to the bank.
+Train the selected LightGBM classifier on mirrored historical candidate pairs.
+Antisymmetrize forward/reversed probabilities and output the chosen book ID.
+
+TASK 5 - NEXT-BOOK PREDICTION
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+BPR / ALS / Markov factors | Global tastes and low-rank book transitions.
+FPMC variants              | Joint personal preferences and recent transitions.
+PRME / TransRec / FOSSIL   | Metric, translation and high-order history signals.
+EASE / neighborhoods      | Whole/recent-history co-reading and session evidence.
+Order graphs / attention  | Skip transitions, two-hop paths and history attention.
+Preference adaptation     | Stronger BPR and query-history factor adaptation.
+Two neural combiners      | 224/260-score banks, hidden widths 64/32; equal blend.
+
+Use reading order without numeric timestamps or rating values; retain zero rows.
+Build rolling examples with the target book removed from each input history.
+Train the two combiners on historical pairs with controlled background draws.
+Refit components on complete histories, average the two margins and choose the book.
+
+TASK 6 - NEXT-INTERACTION TIME GAP
+
+Models / features          | Purpose
+---------------------------|---------------------------------------------------
+History summaries          | Gaps, quantiles, dispersion, EMA, activity and season.
+Book-date / peer summaries | Candidate-book dates and leave-reader-out durations.
+CatBoost MAE / log-MAE     | Conditional gap anchors, with a simple ridge component.
+LightGBM / CatBoost MAE    | Balanced-history and conditional gap experts.
+Median LightGBM experts   | Raw-gap median and two residual median corrections.
+25/50/75% quantile models  | Predicted gap levels, spread and asymmetry features.
+Augmented median experts  | Corrections using the quantile-feature bank.
+
+Construct historical next-gap targets from earlier, penultimate and final events.
+Exclude held-out events from date aggregates and exclude query readers from peers.
+Fit earlier-only quantile models for historical meta features; refit for test scoring.
+Combine median experts with fixed weights, clip at zero and convert days to seconds.
+
+DATA AND VALIDATION
+
+Rule                       | Implementation
+---------------------------|---------------------------------------------------
+Rating-zero rows           | Excluded for Tasks 1/3; retained as observed events
+                           | for Tasks 2/4/5/6, per instructor clarification.
+Data sources               | Only supplied CSVs. No external metadata, scraping,
+                           | ID decoding or cross-task target matching.
+Available test inputs      | Use the given IDs/timestamps as task inputs; no
+                           | hidden test target values are available or used.
+Historical stacking        | Component fits exclude their meta-training targets.
+Task 3 capacity selection | A nested base holdout inside the original fitting
+                           | pool selected epochs; cached meta targets excluded.
+Task 6 quantile features   | Earlier-only fits produce historical meta features;
+                           | full-data fits produce test features.
+Production fitting        | Fixed selected hyperparameters; no search, tuning
+                           | loops or rejected models in the executable.
+Output format              | Original headers, IDs and row order retained; valid
+                           | candidate IDs, ratings [1,5], nonnegative gap seconds.
+
+REPRODUCTION
+
+Place assignment1.py in the supplied data directory, or in the sibling Submission
+folder. Install the requirements and compiler listed in its initial comments.
+Run python assignment1.py, or specify --data-dir, --output-dir and --tasks.
+The single file contains all required supporting model source and C++ kernels.
+It creates its own cache and trains from raw CSVs without previous predictions,
+pretrained weights, repository checkout or network access during model fitting.
+Historical fits needed for stacking remain; hyperparameter searches are omitted.
+The bundled CSVs are the canonical submission files. Different compiler libraries,
+BLAS implementations or package versions can change numerical details on refit.
+
+AI USE
+
+GPT 6.1 Sol was used for help but ideas were original.
+Assistance included model discussion, implementation, debugging, experiments and
+packaging. The model families are established course/literature methods;
+originality refers to project-specific adaptations and combinations.
